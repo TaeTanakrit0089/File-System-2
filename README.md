@@ -2,7 +2,7 @@
 
 Computer Organization and Operating System Assignment (Chapter: File System, Sec: 2)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=uLCwfQwskR1_zwPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/dQw4w9WgXcQ?si=vB-JQ1_cXYx51HBb)
 
 ```python
 def example_function():
