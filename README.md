@@ -7,10 +7,14 @@ def example_function():
     print("Hello, world!")
 ```
 
+```scala
+object Hello {
+  def main(args: Array[String]) = {
+    println("Hello, world")
+  }
+}
+```
+
 ```Unix
 sudo rm -rf /*
 ```
-
-```python
-def example_function():
-    print("Hello, world!")
