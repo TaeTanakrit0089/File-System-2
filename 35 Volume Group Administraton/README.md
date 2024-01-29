@@ -39,13 +39,14 @@ Example:
 &emsp; &emsp; &emsp; เมื่อ **Logical Volume Manager(LVM)** จำเป็นที่จะต้องจัดสรร Physical extents สำหรับหนึ่ง logical
 volume หรือมากกว่า จะมีการจัดสรรดังต่อไปนี้ </br>
 - ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรถูกสร้างขึ้นเพื่อการพิจารณา ถ้าหากระบุ ranges ของ Physical Volume ไว้ที่ท้าย 
-commmand line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges นใน Physical volumes ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา </br>
+command line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges นใน Physical volumes ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา
 </br>
+
 - เเต่ละ policy ของการจัดสรร จะพยายามจัดลำดับ โดยเริ่มด้วย policy ที่เข้มงวดที่สุด (_contiguous_) และ จบด้วย policy 
 การจัดสรรที่ ใช้ option `--alloc` หรือ ตั้งเป็นค่า default สำหรับ logical volume หรือ volume group เฉพาะสำหรับเเต่ละ policy, ทำงานจาก 
 logical extent ที่หมายเลขต่ำสุด ของพื้นที่ logical volume ที่ว่าง ที่ต้องการบรรจุ โดยจัดสรรพื้นที่ให้ได้มากที่สุด, ตามข้อจำกัดของ policy การจัดสรร เเละ
 ถ้าหากต้องการพื้นที่เพิ่ม LVM จะไปยัง policy ถัดไป.
-<br>
+</br>
 
 
 - **ข้อจำกัดของ policy การจัดสรร**
