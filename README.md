@@ -25,4 +25,6 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 | 65070078 | นายณัฐพงศ์ มาสำราญ                   | File System Type               |
 | 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์             | Archiver, Backup/Restore Tools |
 
-## 
+## นำเสนอ
+ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
+![Sumet](/assets/img/members/Sumet-300x300.jpg)
