@@ -23,6 +23,9 @@ File System Type
 ---
 ![The Picture](/assets/img/members/File_System_Type_Example.jpg)
 
+Virtual file system ให้บริการชุดคำสั่งสำหรับ kernel เพื่อที่ให้ผู้ใช้งานสามารถเข้าถึง ประเภทของ File system ทั้งหมดได้ Virtual file system 
+จะเรียกเฉพาะไดรฟ์เวอร์ที่จำเป็นในการเชื่อมต่อกับ ระบบไฟล์(File System)ประเภทนั้นๆเพื่อทำการเชื่อมต่อกับระบบไฟล์ประเภท(Type)ต่างๆได้
+
 
 ---
 
