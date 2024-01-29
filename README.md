@@ -26,7 +26,7 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 ## Contributors
 
-| ID       | Name                            | Sub Topics                     |                                                                                  |
+| ID       | Name                            | Sub Topics                     | Img                                                                              |
 |----------|---------------------------------|--------------------------------|----------------------------------------------------------------------------------|
 | 65070001 | นางสาวกชกร ครุธเวโช             | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
 | 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
