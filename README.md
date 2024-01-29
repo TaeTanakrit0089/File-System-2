@@ -43,4 +43,4 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
 อาจารย์ประจำคณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
 <br>
-![Sumet](/assets/img/members/Sumet-200x200.png)
+<img style="margin: 0 auto" alt="Sumet" src="/assets/img/members/Sumet-200x200.png"/>
