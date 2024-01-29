@@ -1,12 +1,13 @@
 # Physical Volume Administration
-เป็นการจัดการ Physical Volume ทั้งหลายใน Hardisk เป็นการ สร้าง, เพิ่ม/ลดขนาด, ลบ, ป้องกันการเขียนข้อมูล ของ Physical Volume ได้
+
+เป็นการจัดการ **Physical Volume** ทั้งหลายใน Hardisk สามารถที่จะ สร้าง, เพิ่ม/ลดขนาด, ลบ, ป้องกันการเขียนข้อมูล ของ **Physical Volume** ได้ และสามารถใช้ในการนำไปทำ **Volume Group Administrator** หรือ **Logical Volume Administrator** ต่อได้ แต่ก่อนอื่นเราต้องสร้าง และกำหนด **Physical Volume** ขึ้นมาก่อน
 
 ## Physical Component
 
-โดย Physical Volumes ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk
+โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk
 
-ก่อนที่จะเข้าไปจัดการ Physical Volumn ได้นั้น เราต้องลง Logical Volumn Manager (LVM) ใน Linux ก่อน เพื่อให้ใช้งานคำสั่งได้
-แต่ถ้าใช้ Ubuntu Server จะสามารถใช้งาน LVM ได้เลย โดยที่เราไม่ต้องลง Package ของ LVM
+ก่อนที่จะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน เพื่อให้ใช้งานคำสั่งได้
+แต่ถ้าใช้ Ubuntu Server จะสามารถใช้งาน **LVM** ได้เลย โดยที่เราไม่ต้องลง Package ของ **LVM**
 ```
 apt install lvm2
 ```
