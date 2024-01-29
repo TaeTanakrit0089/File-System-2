@@ -22,9 +22,9 @@ Example:
 เมื่อ Physical Volume ถูกนำไปใช้ พื้นที่ว่างของมันจะถูกเเบ่งเป็น extent 4MB โดยค่า default ซึ่งเป็นขนาดขั้นต่ำ โดยสามารถเพิ่มหรือลดค่าได้
 > [!TIP]
 > ขนาดที่ใหญ่ของ extent ไม่มีผลต่อประสิทธิภาพ I/O ของ Logical Volume.
-> </br> สามารถกำหนดขนาดของ extent ได้ด้วยการใส่ option -s
-> </br> จำกัดจำนวน Logical Volume ใน Volume Group ได้ด้วยการ ใช้ option -l
-> </br> จำกัดจำนวน Physical Volume ใน Volume Group ได้ด้วยการ ใช้ option -p
+> </br> - สามารถกำหนดขนาดของ extent ได้ด้วยการใส่ option -s
+> </br> - จำกัดจำนวน Logical Volume ใน Volume Group ได้ด้วยการ ใช้ option -l
+> </br> - จำกัดจำนวน Physical Volume ใน Volume Group ได้ด้วยการ ใช้ option -p
 > 
 - ### การสร้าง Volume Group
 
