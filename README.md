@@ -2,6 +2,8 @@
 
 Computer Organization and Operating System Assignment (Chapter: File System, Sec: 2)
 
+[Contributors](#Contributors)
+
 ## Overview
 
 ระบบไฟล์ (File System) ใน Linux คือ วิธีการจัดระเบียบและจัดเก็บไฟล์ในระบบปฏิบัติการ. โดยพื้นฐานแล้ว,
