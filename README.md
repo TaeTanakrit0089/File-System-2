@@ -15,16 +15,17 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 ## Contributors
 
-| ID       | Name                                 | Sub Topics                     |
-|----------|--------------------------------------|--------------------------------|
-| 65070001 | นางสาวกชกร ครุธเวโช                  | Files, Directories and FHS     |
-| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ      | Raw Media Devices              |
-| 65070028 | นายคณิศร สมศรีอักษรแสง               | Physical Volume Administration |
-| 65070035 | นายจิรโชติ อินทรวงษ์โชติ             | Volume Group Administration    |
-| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง              | Logical Volume Administration  |
-| 65070078 | นายณัฐพงศ์ มาสำราญ                   | File System Type               |
-| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์             | Archiver, Backup/Restore Tools |
-![GroupMembers](/assets/img/members/group-members.jpeg)
+| ID       | Name                                 | Sub Topics                     |                                          |
+|----------|--------------------------------------|--------------------------------|------------------------------------------|
+| 65070001 | นางสาวกชกร ครุธเวโช                  | Files, Directories and FHS     | ![PraeMai](/assets/img/members/001.webp) |
+| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ      | Raw Media Devices              |                                          |
+| 65070028 | นายคณิศร สมศรีอักษรแสง               | Physical Volume Administration |                                          |
+| 65070035 | นายจิรโชติ อินทรวงษ์โชติ             | Volume Group Administration    |                                          |
+| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง              | Logical Volume Administration  |                                          |
+| 65070078 | นายณัฐพงศ์ มาสำราญ                   | File System Type               |                                          |
+| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์             | Archiver, Backup/Restore Tools |                                          |
+
+[//]: # (![GroupMembers]&#40;/assets/img/members/group-members.jpeg&#41;)
 
 ## นำเสนอ
 ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
