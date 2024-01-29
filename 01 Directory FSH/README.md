@@ -3,5 +3,5 @@
 **Computer** Organization
 
 | Comment |
-| --------- |
-| koako |
+|---------|
+| koako   |
