@@ -2,21 +2,29 @@
 
 Computer Organization and Operating System Assignment (Chapter: File System, Sec: 2)
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/dQw4w9WgXcQ?si=vB-JQ1_cXYx51HBb)
+## Overview
 
-```python
-def example_function():
-    print("Hello, world!")
-```
+## Key Areas of Focus
+1. **Files, Directories and FHS:** มาตรฐานระบบไฟล์ (FHS) กำหนดโครงสร้างไดเรกทอรีและเนื้อหาในไดเรกทอรีในระบบปฏิบัติการที่คล้ายกับ Unix มันถูกดูแลโดย Linux Foundation และกำหนดชื่อ, ตำแหน่ง, และสิทธิ์สำหรับหลายประเภทของไฟล์และไดเรกทอรี
+2. **Raw Media Devices:** ในระบบคอมพิวเตอร์เบื้องต้น, Raw Media Devices เป็นประเภทของอุปกรณ์ทางตรรกกะคอมพิวเตอร์ที่อนุญาตให้อุปกรณ์จัดเก็บข้อมูลเช่นฮาร์ดดิสก์ไดรฟ์เข้าถึงโดยตรง, ข้ามแคชและบัฟเฟอร์ของระบบปฏิบัติการ
+3. **Physical Volume Administration:** หน่วยจัดเก็บข้อมูลทางกายภาพพื้นฐานของ LVM (Logical Volume Manager) ซึ่งสามารถเป็นอุปกรณ์บล็อกเช่นพาร์ทิชันหรือฮาร์ดดิสก์ทั้งหมด
+4. **Volume Group Administration:**  กลุ่มของพื้นที่เสมือนในฮาร์ดดิสก์ถูกสร้างขึ้นมาโดยการแบ่งดิสก์ทางกายภาย (Physical Volume) ออกเป็นส่วนๆ สร้างพื้นที่ในส่วนของฮาร์ดดิสก์ที่สามารถจัดการส่วนของ Logical Volume ได้
+5. **Logical Volume Administration:** เป็นการจัดการจัดการการแบ่งฮาร์ดดิสก์ทางตรรกะ (Logical Volumes) เปรียบเสมือนเป็นการสร้างกล่องจัดเก็บข้อมูลจำลองที่ระบบไฟล์ (File System), ระบบฐานข้อมูล (DMBS) หรือแอปพลิเคชั่นต่างๆ สามารถเข้าถึงได้ซึ่งการจัดการเหล่านี้จัดการโดย Volume Group 
+6. **File System Type:** ระบบไฟล์คือวิธีและโครงสร้างของข้อมูลที่ระบบปฏิบัติการใช้ในการควบคุมวิธีการจัดเก็บและเรียกคืนข้อมูล โดยจะมีระบบไฟล์หลายประเภทซึ่งแต่ละประเภทมีโครงสร้างและการทำงานเป็นของตัวเองเช่น NTFS, FAT32, exFAT, และ EXT2/2/4
+7. **Archiver, Backup/Restore Tools:** เป็นเครื่องมือซอฟต์แวร์ทีสร้างและจัดการการสำรองข้อมูลของคุณและกู้คืนของข้อมูล
 
-```scala
-object Hello {
-  def main(args: Array[String]) = {
-    println("Hello, world")
-  }
-}
-```
+## Contributors
 
-```Unix
-sudo rm -rf /*
-```
+| ID       | Name                                 | Sub Topics                     |
+|----------|--------------------------------------|--------------------------------|
+| 65070001 | นางสาวกชกร ครุธเวโช                  | Files, Directories and FHS     |
+| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ      | Raw Media Devices              |
+| 65070028 | นายคณิศร สมศรีอักษรแสง               | Physical Volume Administration |
+| 65070035 | นายจิรโชติ อินทรวงษ์โชติ             | Volume Group Administration    |
+| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง              | Logical Volume Administration  |
+| 65070078 | นายณัฐพงศ์ มาสำราญ                   | File System Type               |
+| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์             | Archiver, Backup/Restore Tools |
+
+## นำเสนอ
+ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต<br>
+![Sumet](/assets/img/members/Sumet-200x200.png)
