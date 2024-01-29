@@ -14,8 +14,6 @@
 
 ภาพตัวอย่างด้านบนนั้นเป็น **Logical Storage** ที่ถูกสร้างขึ้นจาก **Physical Storage** 2 อัน (SSD 250GB 2 อัน) จะเห็นได้ว่า **Logical Storage** ที่สร้างขึ้น สามารถปรับแต่งได้ตามที่เราต้องการ เช่น จำกัดการเข้าถึง User บางกลุ่มกับ **Logical Storage** บางอัน ปรับขนาดเพิ่ม/ลด ได้อิสระ
 
-## Advantages of Logical Volume Administration
-
 
 ## Logical Volume Management in Linux
 
