@@ -38,19 +38,23 @@ Example:
 
 &emsp; &emsp; &emsp; เมื่อ **Logical Volume Manager(LVM)** จำเป็นที่จะต้องจัดสรร Physical extents สำหรับหนึ่ง logical
 volume หรือมากกว่า จะมีการจัดสรรดังต่อไปนี้ </br>
-&emsp; &emsp; &emsp; - ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรถูกสร้างขึ้นเพื่อการพิจารณา ถ้าหากระบุ ranges ของ Physical Volume ไว้ที่ท้าย 
-commmand line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges นใน Physical volumes ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา
-&emsp; &emsp; &emsp; - เเต่ละ policy ของการจัดสรร จะพยายามจัดลำดับ โดยเริ่มด้วย policy ที่เข้มงวดที่สุด (_contiguous_) และ จบด้วย policy 
+- ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรถูกสร้างขึ้นเพื่อการพิจารณา ถ้าหากระบุ ranges ของ Physical Volume ไว้ที่ท้าย 
+commmand line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges นใน Physical volumes ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา </br>
+</br>
+- เเต่ละ policy ของการจัดสรร จะพยายามจัดลำดับ โดยเริ่มด้วย policy ที่เข้มงวดที่สุด (_contiguous_) และ จบด้วย policy 
 การจัดสรรที่ ใช้ option `--alloc` หรือ ตั้งเป็นค่า default สำหรับ logical volume หรือ volume group เฉพาะสำหรับเเต่ละ policy, ทำงานจาก 
 logical extent ที่หมายเลขต่ำสุด ของพื้นที่ logical volume ที่ว่าง ที่ต้องการบรรจุ โดยจัดสรรพื้นที่ให้ได้มากที่สุด, ตามข้อจำกัดของ policy การจัดสรร เเละ
 ถ้าหากต้องการพื้นที่เพิ่ม LVM จะไปยัง policy ถัดไป.
-  - **ข้อจำกัดของ policy การจัดสรร**
-    - Policy ของการจัดสรรเเบบ `contigous` กำหนดให้ตำเเหน่ง physical ของ logical extent ใดๆที่ไม่ใช่ logical extent ตัวเเรกของ logical volume ที่อยุ่ติด
-  ตำเเหน่ง physical ของ logical extent ก่อนหน้านั้นทันที, เมื่อ logical volume ถูก striped หรือ mirrored ข้อจำกัดการจัดสรร `contigous` จะถูกนำไปใช้กับเเต่ละ stripe หรือ mirror image ที่ต้องการพื้นที่.
-    - Policy ของการจัดสรรเเบบ `cling` กำหนดไว้ว่า Physical volume ที่ถูกใช้โดย logical extent จะถูกเพิ่มเข้าไปยัง logical volume ที่ถูกใช้เเล้ว
-    อย่างน้อยหนึ่ง logical extent ก่อนหน้านั้นใน logical volume นั้น. หากมีการกำหนด parameter `allocation/cling_tag_list` Physical volume
-    สองตัวจะถือว่า match กัน ถ้าหากมี tag ใดๆ บนทั้งสอง Physical volume. ซึ่งช่วยให้ groups ของ Physical Volume ที่มีคุณสมบัติคล้ายกัน (เช่น ตำเเหน่ง physical)
-    สามารถ tag เเละถือว่าเทียบเท่ากัน ในการจัดสรร
+<br>
+
+
+- **ข้อจำกัดของ policy การจัดสรร**
+  - Policy ของการจัดสรรเเบบ `contigous` กำหนดให้ตำเเหน่ง physical ของ logical extent ใดๆที่ไม่ใช่ logical extent ตัวเเรกของ logical volume ที่อยุ่ติด
+ตำเเหน่ง physical ของ logical extent ก่อนหน้านั้นทันที, เมื่อ logical volume ถูก striped หรือ mirrored ข้อจำกัดการจัดสรร `contigous` จะถูกนำไปใช้กับเเต่ละ stripe หรือ mirror image ที่ต้องการพื้นที่.
+  - Policy ของการจัดสรรเเบบ `cling` กำหนดไว้ว่า Physical volume ที่ถูกใช้โดย logical extent จะถูกเพิ่มเข้าไปยัง logical volume ที่ถูกใช้เเล้ว
+  อย่างน้อยหนึ่ง logical extent ก่อนหน้านั้นใน logical volume นั้น. หากมีการกำหนด parameter `allocation/cling_tag_list` Physical volume
+  สองตัวจะถือว่า match กัน ถ้าหากมี tag ใดๆ บนทั้งสอง Physical volume. ซึ่งช่วยให้ groups ของ Physical Volume ที่มีคุณสมบัติคล้ายกัน (เช่น ตำเเหน่ง physical)
+  สามารถ tag เเละถือว่าเทียบเท่ากัน ในการจัดสรร
 
 
 
