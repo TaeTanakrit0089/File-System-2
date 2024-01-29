@@ -28,8 +28,10 @@ Example:
 > [!TIP]
 > - ขนาดที่ใหญ่ของ extent ไม่มีผลต่อประสิทธิภาพ I/O ของ Logical Volume.
     >
+
 - สามารถกำหนดขนาดของ extent ได้ด้วยการใส่ option -s
->   - จำกัดจำนวน Logical Volume ใน Volume Group ได้ด้วยการ ใช้ option -l
+
+> - จำกัดจำนวน Logical Volume ใน Volume Group ได้ด้วยการ ใช้ option -l
 >   - จำกัดจำนวน Physical Volume ใน Volume Group ได้ด้วยการ ใช้ option -p
 >
 
