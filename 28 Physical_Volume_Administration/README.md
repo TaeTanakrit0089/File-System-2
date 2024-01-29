@@ -3,7 +3,12 @@
 เป็นการจัดการ **Physical Volume** ทั้งหลายใน Hardisk สามารถที่จะ สร้าง, เพิ่ม/ลดขนาด, ลบ, ป้องกันการเขียนข้อมูล ของ **Physical Volume** ได้ และสามารถใช้ในการนำไปทำ **Volume Group Administrator** หรือ **Logical Volume Administrator** ต่อได้ แต่ก่อนอื่นเราต้องสร้าง และกำหนด **Physical Volume** ขึ้นมาก่อน
 
 ## Physical Component
-Physical Storage Unit เป็นโครงสร้างพื้นฐานของ LVM Logical Volume ที่เป็น Block Device โดยอาจเป็น Partition หรือ Disk ทั้งหมด, เพื่อให้ Device ใช้ LVM Logical Volume ได้นั้น ตัว Device ต้องเริ่มระบุเป็น **Physical Volume (PV)**, การเริ่มการทำ Block Device โดยการทำ **Physical Volume** นั้นเป็น Label ใกล้กับตอนการเริ่มการทำงานของ Device
+หน่วยที่เก็บข้อมูลกายภาพของ LVM Logical Volume นั้นเป็น Block Device โดยอาจเป็น Partition หรือ Disk ทั้งหมด, เพื่อให้ Device ใช้ LVM Logical Volume ได้นั้น ตัว Device ต้องเริ่มระบุเป็น **Physical Volume (PV)**, การเริ่มกำหนด Block Device หรือก็คือ **Physical Volume** นั้นเป็นการเริ่มการทำงานตอน Device
+
+โดยการทำงานปกติ LVM label จะอยู่ใน 512-byte Sector ตัวที่สอง โดยสามารถที่จะเปลี่ยนการทำงานของมันได้ โดยการวาง label ลงบน Sector ไหนก็ได้ของ 4 Sectors แรก เมื่อต้องการจะสร้าง Physical Volume โดยสามารถให้ผู้ใช้คนอื่นใน Sectors สามารถใช้ LVM volumes ร่วมกันได้ หากต้องการได้
+
+> [!Note]
+> ใน Linux kernel, จะให้แต่ละ Sectors นั้นมีขนาด 512 bytes
 
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk
 
