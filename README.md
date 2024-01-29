@@ -24,7 +24,10 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 | 65070076 | นายณัฐนนท์ วงศ์หนองเเวง              | Logical Volume Administration  |
 | 65070078 | นายณัฐพงศ์ มาสำราญ                   | File System Type               |
 | 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์             | Archiver, Backup/Restore Tools |
+![GroupMembers](/assets/img/members/group-members.jpeg)
 
 ## นำเสนอ
-ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต<br>
+ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
+อาจารย์ประจำคณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+<br>
 ![Sumet](/assets/img/members/Sumet-200x200.png)
