@@ -7,7 +7,7 @@
 
 [//]: # ([![IMAGE ALT TEXT HERE]&#40;https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg&#41;]&#40;https://youtu.be/dQw4w9WgXcQ?si=vB-JQ1_cXYx51HBb&#41;)
 
-## Commands
+
 <hr>
 
 - ### การสร้าง Volume Group
@@ -25,35 +25,57 @@ Example:
 >   - สามารถกำหนดขนาดของ extent ได้ด้วยการใส่ option -s
 >   - จำกัดจำนวน Logical Volume ใน Volume Group ได้ด้วยการ ใช้ option -l
 >   - จำกัดจำนวน Physical Volume ใน Volume Group ได้ด้วยการ ใช้ option -p
-> 
-- ### การสร้าง Volume Group
+> - Volume group ที่ภูกสร้างจะถูกเพิ่มเข้าไปใน /dev เช่น สร้าง vg ชื่อ test1 เมื่อทำการดูใน /dev จะพบ test1
+
+- ### การจัดสรร LVM
+&emsp; &emsp; &emsp; เมื่อ **Logical Volume Manager(LVM)** จำเป็นที่จะต้องจัดสรร Physical extents สำหรับหนึ่ง logical volume หรือมากกว่า จะมีการจัดสรรดังต่อไปนี้ </br>
+&emsp; &emsp; &emsp; - ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรจะถูกสร้างขึ้นเพื่อการพิจารณา
 
 
-###
-- การเรียกใช้งานและผลลัพธ์ที่ได้
-- แต่ละ Command ที่เกี่ยวข้องนั้น มี Options หรือ Arguments อะไรที่ควรทราบ และได้อะไรออกมา
-- ตัวอย่าง Code การเรียกใช้งานที่ต้องการผลลัพธ์แบบต่างๆ
-- อภิปรายในเรื่องที่น่าสนใจ เช่น ข้อควรระวังในการใช้งาน, Bug, หรือช่องโหว่ ฯลฯ
-- อื่นๆที่น่าสนใจ
+
+
+
+[//]: # (- การเรียกใช้งานและผลลัพธ์ที่ได้)
+
+[//]: # (- แต่ละ Command ที่เกี่ยวข้องนั้น มี Options หรือ Arguments อะไรที่ควรทราบ และได้อะไรออกมา)
+
+[//]: # (- ตัวอย่าง Code การเรียกใช้งานที่ต้องการผลลัพธ์แบบต่างๆ)
+
+[//]: # (- อภิปรายในเรื่องที่น่าสนใจ เช่น ข้อควรระวังในการใช้งาน, Bug, หรือช่องโหว่ ฯลฯ)
+
+[//]: # (- อื่นๆที่น่าสนใจ)
 
 [//]: # (<p style='color:red'>This is some red text.</p>)
 
 
 
+[//]: # ()
+[//]: # (```python)
 
-```python
-def example_function():
-    print("Hello, world!")
-```
+[//]: # (def example_function&#40;&#41;:)
 
-```scala
-object Hello {
-  def main(args: Array[String]) = {
-    println("Hello, world")
-  }
-}
-```
+[//]: # (    print&#40;"Hello, world!"&#41;)
 
-```Unix
-sudo rm -rf  jjtyjtjttjtjttjth/*
-```
+[//]: # (```)
+
+[//]: # ()
+[//]: # (```scala)
+
+[//]: # (object Hello {)
+
+[//]: # (  def main&#40;args: Array[String]&#41; = {)
+
+[//]: # (    println&#40;"Hello, world"&#41;)
+
+[//]: # (  })
+
+[//]: # (})
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (```Unix)
+
+[//]: # (sudo rm -rf  jjtyjtjttjtjttjth/*)
+
+[//]: # (```)
