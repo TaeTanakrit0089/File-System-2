@@ -1,6 +1,7 @@
-# Raw Media Device
-Raw Media Device จะเข้าถึง Hardware ได้โดยตรงโดยไม่สนใจ cache
-และ buffer ของ Operation System(OS) หรือ ระบบปฎิบัติการ
+Raw Media Device
+===
+---
+## บทบาทหน้าที่ของ Raw Media Device ทำให้สามารถเข้าถึงอุปกรณ์บล็อค เช่น disk ได้โดยตรงโดยไม่ผ่านระบบไฟล์ หรือ cache และ buffer ของ Operation System(OS) ทำให้ทำงานได้รวดเร็ว
 
-
-source:https://en.wikipedia.org/wiki/Raw_device
+### References:
+    https://en.wikipedia.org/wiki/Raw_device
