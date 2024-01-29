@@ -21,7 +21,7 @@ File System Type
 หลักการทำงาน
 ===
 ---
-![The Picture](assets/img/members/File System Type Example.jpg)
+![The Picture](/assets/img/members/File_System_Type_Example.jpg)
 
 
 ---
