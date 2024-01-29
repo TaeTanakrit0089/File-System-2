@@ -3,19 +3,17 @@
 Computer Organization and Operating System Assignment (Chapter: File System, Sec: 2)
 
 ## Overview
-The Linux file system is a crucial element of the operating system that manages, stores, and retrieves your data efficiently. It's a multifaceted structure comprised of three essential layers:
 
-1. **Logical File System**: This layer serves as the interface between user applications and the file system itself, managing operations like opening, reading, and closing files.
+ระบบไฟล์ (File System) ใน Linux คือ วิธีการจัดระเบียบและจัดเก็บไฟล์ในระบบปฏิบัติการ. โดยพื้นฐานแล้ว,
+ระบบไฟล์จะทำหน้าที่เป็นโครงสร้างไดเร็กทอรีที่อนุญาตให้ผู้ใช้เข้าถึง, จัดเก็บ, และจัดระเบียบไฟล์ได้อย่างมีประสิทธิภาพ.
+ระบบไฟล์มักจะประกอบด้วยหลายเลเยอร์ รวมถึงเลเยอร์ตรรกะที่ให้การโต้ตอบกับผู้ใช้ API สำหรับการทำงานของไฟล์ต่างๆ.
 
-2. **Virtual File System (VFS)**: The VFS facilitates the concurrent operation of multiple physical file systems, providing a standardized interface for compatibility.
+ระบบไฟล์ใน Linux มีหน้าที่จัดเก็บข้อมูลระบบของคุณและจัดการข้อมูลเหล่านั้น. ระบบไฟล์สามารถกำหนดเป็นกลไกที่อยู่เบื้องหลัง
+การจัดเก็บและดึงข้อมูล.
 
-3. **Physical File System**: This layer is responsible for the tangible management and storage of physical memory blocks on the disk, ensuring efficient data allocation and retrieval.
-
-Together, these layers form a cohesive architecture, orchestrating the organized and efficient handling of data in the Linux operating system. The Linux file system is organized in a hierarchical structure, starting from the root directory (“/”) and branching out into different directories⁵. Each directory serves a specific purpose, making it easier to organize and locate files and resources⁵.
-
-There are various types of file systems in Linux, such as ext4 and XFS, which are commonly used due to their speed and reliability. More advanced options like btrfs and ZFS are also available, offering more flexibility and safety with larger amounts of storage.
-
-
+ระบบไฟล์ใน Linux มีหลายประเภท เช่น ext4 และ XFS ซึ่งเป็นที่นิยมเนื่องจากความเร็วและความน่าเชื่อถือ.
+นอกจากนี้ยังมีตัวเลือกที่เป็นขั้นสูงขึ้นเช่น btrfs และ ZFS
+ซึ่งมีความยืดหยุ่นและความปลอดภัยมากขึ้นสำหรับการจัดเก็บข้อมูลขนาดใหญ่.
 
 ## Key Areas of Focus
 
@@ -56,14 +54,16 @@ There are various types of file systems in Linux, such as ext4 and XFS, which ar
 ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
 อาจารย์ประจำคณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
 <br>
-<p align="center">
+<div style="display: flex; justify-content: center">
 <img alt="Sumet" src="/assets/img/members/Sumet-200x200.png"/>
-</p>
+</div>
 
+### Source: Conversation with Bing, 1/29/2024
 
-Source: Conversation with Bing, 1/29/2024 
 - Linux File System - GeeksforGeeks. https://www.geeksforgeeks.org/linux-file-system/.
--  Linux File System: Understanding Directory Structure ... - howtouselinux. https://www.howtouselinux.com/post/linux-file-system-understanding-directory-structure-and-navigating-the-file-system.
--  Guide to Linux Filesystems | Baeldung on Linux. https://www.baeldung.com/linux/filesystems.
--  Partitions And Filesystems In Linux – Introduction. https://www.linuxfordevices.com/tutorials/linux/partitions-and-filesystems.
--  Linux File System - javatpoint. https://www.javatpoint.com/linux-file-system.
+- Linux File System: Understanding Directory Structure ... -
+  howtouselinux. https://www.howtouselinux.com/post/linux-file-system-understanding-directory-structure-and-navigating-the-file-system.
+- Guide to Linux Filesystems | Baeldung on Linux. https://www.baeldung.com/linux/filesystems.
+- Partitions And Filesystems In Linux –
+  Introduction. https://www.linuxfordevices.com/tutorials/linux/partitions-and-filesystems.
+- Linux File System - javatpoint. https://www.javatpoint.com/linux-file-system.
