@@ -21,6 +21,6 @@
 
 **Linux** มีสิ่งที่เรียกว่า **Logical Volume Management (LVM)** มีความสามารถในการทำและจัดการ **Logical Volume**  สามารถทำ **Backups** ข้อมูล (การทำ Snapshot) ได้
 <br>
-<br>ห
+<br>
 <img  src="https://www.cyberciti.biz/media/new/faq/2018/08/Shows-information-about-available-LVM-logical-volumes.png">
 
