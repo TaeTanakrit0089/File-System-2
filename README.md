@@ -37,21 +37,22 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 ## Contributors
 
-| ID       | Name                            | Sub Topics                     | Img                                                                              |
-|----------|---------------------------------|--------------------------------|----------------------------------------------------------------------------------|
-| 65070001 | นางสาวกชกร ครุธเวโช             | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
-| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
-| 65070028 | นายคณิศร สมศรีอักษรแสง          | Physical Volume Administration | <img alt="Best" height="150" src="/assets/img/members/028.webp" width="150"/>    |
-| 65070035 | นายจิรโชติ อินทรวงษ์โชติ        | Volume Group Administration    | <img alt="Jai" height="150" src="/assets/img/members/035.webp" width="150"/>     |
-| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง         | Logical Volume Administration  | <img alt="Nont" height="150" src="/assets/img/members/076.webp" width="150"/>    |
-| 65070078 | นายณัฐพงศ์ มาสำราญ              | File System Type               | <img alt="James" height="150" src="/assets/img/members/078.webp" width="150"/>   |
-| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์        | Archiver, Backup/Restore Tools | <img alt="Tae" height="150" src="/assets/img/members/089.webp" width="150"/>     |
+| ID       | Name                                  | Sub Topics                     | Img                                                                              |
+|----------|---------------------------------------|--------------------------------|----------------------------------------------------------------------------------|
+| 65070001 | นางสาวกชกร ครุธเวโช (แพรไหม)          | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
+| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ (วิน) | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
+| 65070028 | นายคณิศร สมศรีอักษรแสง (เบส)          | Physical Volume Administration | <img alt="Best" height="150" src="/assets/img/members/028.webp" width="150"/>    |
+| 65070035 | นายจิรโชติ อินทรวงษ์โชติ (ไจ๋)        | Volume Group Administration    | <img alt="Jai" height="150" src="/assets/img/members/035.webp" width="150"/>     |
+| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง (นนท์)        | Logical Volume Administration  | <img alt="Nont" height="150" src="/assets/img/members/076.webp" width="150"/>    |
+| 65070078 | นายณัฐพงศ์ มาสำราญ (เจมส์)            | File System Type               | <img alt="James" height="150" src="/assets/img/members/078.webp" width="150"/>   |
+| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์ (เต้)        | Archiver, Backup/Restore Tools | <img alt="Tae" height="150" src="/assets/img/members/089.webp" width="150"/>     |
 
 [//]: # (![GroupMembers]&#40;/assets/img/members/group-members.jpeg&#41;)
 
 ## นำเสนอ
 
 ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
+
 อาจารย์ประจำคณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
 <br>
 <div style="display: flex; justify-content: center">
