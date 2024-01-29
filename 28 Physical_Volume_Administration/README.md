@@ -3,7 +3,20 @@
 เป็นการจัดการ **Physical Volume** ทั้งหลายใน Hardisk สามารถที่จะ สร้าง, เพิ่ม/ลดขนาด, ลบ, ป้องกันการเขียนข้อมูล ของ **Physical Volume** ได้ และสามารถใช้ในการนำไปทำ **Volume Group Administrator** หรือ **Logical Volume Administrator** ต่อได้ แต่ก่อนอื่นเราต้องสร้าง และกำหนด **Physical Volume** ขึ้นมาก่อน
 
 ## Physical Component
-Physical Storage Unit เป็นโครงสร้างพื้นฐานของ LVM Logical Volume ที่เป็น Block Device โดยอาจเป็น Partition หรือ Disk ทั้งหมด, เพื่อให้ Device ใช้ LVM Logical Volume ได้นั้น ตัว Device ต้องเริ่มระบุเป็น **Physical Volume (PV)**, การเริ่มการทำ Block Device โดยการทำ **Physical Volume** นั้นเป็น Label ใกล้กับตอนการเริ่มการทำงานของ Device
+หน่วยที่เก็บข้อมูลกายภาพของ LVM Logical Volume นั้นเป็น Block Device โดยอาจเป็น Partition หรือ Disk ทั้งหมด, เพื่อให้ Device ใช้ LVM Logical Volume ได้นั้น ตัว Device ต้องเริ่มระบุเป็น **Physical Volume (PV)**, การเริ่มกำหนด Block Device หรือก็คือ **Physical Volume** นั้นเป็นการเริ่มการทำงานตอน Device
+
+โดยการทำงานปกติ LVM Label จะอยู่ใน 512-byte Sector ตัวที่สอง โดยสามารถที่จะเปลี่ยนการทำงานของมันได้ โดยการวาง Label ลงบน Sector ไหนก็ได้ของ 4 Sectors แรก เมื่อต้องการจะสร้าง Physical Volume โดยสามารถให้ผู้ใช้คนอื่นใน Sectors สามารถใช้ LVM volumes ร่วมกันได้ หากต้องการได้
+
+ตัว LVM Label ช่วยให้ระบุตัวตนที่ถูกและเรียงอุปกรณ์ให้ Physical Device เพราะ Devices สามารถอยู่ลำดับอะไรก็ได้ เมื่อตอนที่ระบบถูกบูท ตัว LVM Label ยังคงเดิมแม้จะโดนรีบูท หรือผ่าน Cluster
+
+LAM Label ช่วยระบุ Device ของ LVM Physical Volume ได้, มันมี Random Unique Identifier (UUID) ของ Physical Volime ในการระบุตัวตน, มันยังเก็บขนาดของ Block Device แบบ Bytes, และยังเก็บที่อยู่ของ LVM Metadat ที่จะถูกเก็บใน Device ด้วย
+
+LVM Metadata เก็บรายละเอียดการตั้งค่าของ LVM Volume Groups บนระบบให้, โดยปกติจะมีสำเนาของ Metadata อยู่ในทุก ๆ Metadata Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Metadata เล็กและเก็บรูปแบบ ASCII
+
+
+
+> [!Note]
+> ใน Linux kernel, จะให้แต่ละ Sectors นั้นมีขนาด 512 bytes
 
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk
 
