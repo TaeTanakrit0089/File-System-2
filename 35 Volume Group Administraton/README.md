@@ -79,8 +79,8 @@ logical extent ที่หมายเลขต่ำสุด ของพื�
 
 สามารถสร้าง CLVM volume groups ใน cluster environment ด้วยคำสั่ง `vgcreate`
 >[!NOTE]
-> ใน Red Hat Enterprise Linux 7 cluster จะถูกจัดการผ่าน Pacemaker
-> Clustered LVM logical Volume จะsupport ร่วมกับ Pacemaker clusters เท่านั้นเเละต้องกำหนด เป็น cluster resource
+> - ใน Red Hat Enterprise Linux 7 cluster จะถูกจัดการผ่าน Pacemaker
+> - Clustered LVM logical Volume จะsupport ร่วมกับ Pacemaker clusters เท่านั้นเเละต้องกำหนด เป็น cluster resource
 
 &emsp; &emsp; &emsp; Volume groups ที่ถูก share โดย สมาชิกของ cluster ควรที่จะถูกสร้างขึ้นด้วย attribute clustered ด้วยคำสั่ง `vgcreate -cy` หรือ `vgchange -cy`
 attribute clustered จะถูกกำหนดให้ อัตโนมัติ ถ้า CLVMD กำลังทำงานอยู่
