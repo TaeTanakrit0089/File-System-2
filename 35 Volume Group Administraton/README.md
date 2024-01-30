@@ -78,7 +78,7 @@ logical extent ที่หมายเลขต่ำสุด ของพื�
 </br>
 
 สามารถสร้าง CLVM volume groups ใน cluster environment ด้วยคำสั่ง `vgcreate`
->[!NOTES]
+>[!NOTE]
 > ใน Red Hat Enterprise Linux 7 cluster จะถูกจัดการผ่าน Pacemaker
 > Clustered LVM logical Volume จะsupport ร่วมกับ Pacemaker clusters เท่านั้นเเละต้องกำหนด เป็น cluster resource
 
@@ -97,10 +97,10 @@ Example: `vgcreate -c n vg1 /dev/sdd1 /dev/sde1` _เมื่อใช้คำ
 </br>
 
 เราสามารถที่จะเปลี่ยนเป็นเเบบ local หรือ cluster ได้ด้วยการใช้ `-c` ในคำสั่ง `vgchange` </br>
-เเละ การที่จะเช็คว่า volume group เป็นเเบบ cluster ไหมสามารถเช็คด้วย การใช้คำสั่ง vgs เเละดูว่า มี c ใน attribute ไหม
-   <img justify-content = "center" src = "https://www.redhat.com/sysadmin/sites/default/files/styles/embed_large/public/2021-04/3_vgs.png?itok=IzeTjCrc"></img>
-_รูปจาก: https://www.redhat.com/sysadmin/resize-lvm-simple_
+เเละ การที่จะเช็คว่า volume group เป็นเเบบ cluster ไหมสามารถเช็คด้วย การใช้คำสั่ง vgs เเละดูว่า มี c ใน attribute ไหม</br>
 
+   <img justify-content = "center" src = "https://www.redhat.com/sysadmin/sites/default/files/styles/embed_large/public/2021-04/3_vgs.png?itok=IzeTjCrc"></img>
+  <figcaption>รูปจาก: https://www.redhat.com/sysadmin/resize-lvm-simple</figcaption>
 
 จากในภาพจะเห็นว่าใน attribute ไม่มี attribute `c` อยู่ โดยหากมีจะเป็นบริเวณ attributeจะมีค่าเป็น `wz--nc`
 
