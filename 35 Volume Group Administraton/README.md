@@ -100,7 +100,7 @@ Example: `vgcreate -c n vg1 /dev/sdd1 /dev/sde1` _เมื่อใช้คำ
 เเละ การที่จะเช็คว่า volume group เป็นเเบบ cluster ไหมสามารถเช็คด้วย การใช้คำสั่ง vgs เเละดูว่า มี c ใน attribute ไหม</br>
 
    <img justify-content = "center" src = "https://www.redhat.com/sysadmin/sites/default/files/styles/embed_large/public/2021-04/3_vgs.png?itok=IzeTjCrc"></img>
-  <figcaption>รูปจาก: https://www.redhat.com/sysadmin/resize-lvm-simple</figcaption>
+  รูปจาก: https://www.redhat.com/sysadmin/resize-lvm-simple</br>
 
 จากในภาพจะเห็นว่าใน attribute ไม่มี attribute `c` อยู่ โดยหากมีจะเป็นบริเวณ attributeจะมีค่าเป็น `wz--nc`
 
