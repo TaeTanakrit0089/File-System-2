@@ -1,7 +1,6 @@
-# Physical Volume Administration
+# Physical Volumes
 
-เป็นการจัดการ **Physical Volume** ทั้งหลายใน Hardisk สามารถที่จะ สร้าง, เพิ่ม/ลดขนาด, ลบ, ป้องกันการเขียนข้อมูล ของ *
-*Physical Volume** ได้ และสามารถใช้ในการนำไปทำ **Volume Group Administrator** หรือ **Logical Volume Administrator**
+เป็นการจัดการ **Physical Volume** ทั้งหลายใน Hardisk สามารถที่จะ สร้าง, เพิ่ม/ลดขนาด, ลบ, ป้องกันการเขียนข้อมูล ของ **Physical Volume** ได้ และสามารถใช้ในการนำไปทำ **Volume Group Administrator** หรือ **Logical Volume Administrator**
 ต่อได้ แต่ก่อนอื่นเราต้องสร้าง และกำหนด **Physical Volume** ขึ้นมาก่อน
 
 ## Physical Component
@@ -53,8 +52,32 @@ LVM สามารถทำให้สร้าง Physical Volume จาก D
 Partition) ถ้าต้องการ Disk ที่มีมากกว่า 1 Partition และ Partitions ทั้งคู่ก็อยู่ใน Volume Group เดียวกัน ควรดูแลเฉพาะ
 Partition ที่อยู่ใน Logical Volume เมื่อสร้าง Striped Volumes
 
-โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk
-ก่อนที่จะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน
+
+# Physical Volume Administration
+มีหน้าที่ในการจัดการ Physical Volumes ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server ใช้ในการตรวจสอบ เพิ่ม ลบ ดูแล
+
+## Creating Physical Volumes
+โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น Physical Volumes หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น Physical Volumes โดยวิธีทำก็คือ
+ใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออื่น ๆ โดยต้องตั้งค่า Partition id เป็น `0x8e` ถ้าต้องการจะให้ทั้ง Disk เป็น Physical Volume ตัว Disk ต้องไม่มี Partition Table สำหรับ DOS Disk Partition, สำหรับทั้ง Disk ต้องมีแค่ Partition Table ที่ต้องถูกล้างข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้ว โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
+
+```CIL
+# dd if=/dev/zero of=PhysicalVolume bs=512 count=1
+```
+
+### Initializing Physical Volumes
+ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
+
+โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่ใช้ในภายหลังเป็นส่วนของ LVM Logical Volumes
+
+```CIL
+# dd if=/dev/zero of=PhysicalVolume bs=512 count=1
+```
+
+## Displaying Physical Volumes
+
+โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
+
+ก่อนจะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน
 เพื่อให้ใช้งานคำสั่งได้
 แต่ถ้าใช้ Ubuntu Server จะสามารถใช้งาน **LVM** ได้เลย โดยที่เราไม่ต้องลง Package ของ **LVM**
 
