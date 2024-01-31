@@ -79,6 +79,7 @@ Partition ที่อยู่ใน Logical Volume เมื่อสร้า
 ```CIL
 # pvcreate /dev/hdb1
 ```
+### 1.2 Scanning for Block Devices
 
 ## 2. Displaying Physical Volumes
 
