@@ -15,7 +15,7 @@
 
 &emsp; &emsp; &emsp; ในการสร้าง Volume Group จาก Physical Volume เราจะทำได้โดยการเรียกใช้คำสั่ง
 
-    # vgcreate [ชื่อ vg] [Physical Volume ที่ต้องการ] [Physical Volume ที่ต้องการ]....
+    vgcreate [ชื่อ vg] [Physical Volume ที่ต้องการ] [Physical Volume ที่ต้องการ]....
 
 Example:
 
@@ -111,7 +111,7 @@ Example: `vgcreate -c n vg1 /dev/sdd1 /dev/sde1` _เมื่อใช้คำ
 
 &emsp; &emsp; &emsp; การที่จะเพิ่ม Physical volume ไปยัง volume group สามารถทำได้โดยการใช้ vgextend เพื่อเพิ่มความจุ volume group ด้วยการเพิ่ม physical volume ที่ว่างเข้าไป
 
-    # vgextend ชื่อvolume-group physicalvolume
+    vgextend ชื่อvolume-group physicalvolume
 
 example: `vgextend vg1 /dev/sdf1`
 
@@ -184,7 +184,7 @@ example:
 &emsp; &emsp; &emsp; โดยปกติเเล้วเมื่อทำการสร้าง volume group มันจะ activated ซึ่งหมายความว่า สามารถที่จะเข้าถึง logical volume ใน volume group นั้นได้
 เเต่ก็จะมีบางสถานการณ์ที่อาจต้องทำให้ volume group ไม่ทำงาน เเละทำให้ kernel ไม่รู้จัก โดยสามารถที่จะ active เเละ deactive ได้ผ่านคำสั่ง
 
-    # vgchange -a y|n ชื่อvolume-group   // y คือ active n คือ deactive
+    vgchange -a y|n ชื่อvolume-group   // y คือ active n คือ deactive
 
 หาก clustered locking เปิดใช้งานอยู่ ให้เพิ้ม `e` เพื่อที่จะ active หรือ deactive volume group บน node เดียวเท่านั้น หรือ `l` เพื่อ active หรือ deactive volume group ใน local node, 
 logical volume ที่เป็นเเบบ single-host snapshots จะ active โดยเฉพาะเสมอ เพราะสามารถใช้ได้เพียงบน node เดียวในคราวเดียวเท่านั้น
@@ -193,7 +193,7 @@ logical volume ที่เป็นเเบบ single-host snapshots จะ ac
 
 ## การเปลี่ยน Parameters ของ Volume group
 
-&emsp; &emsp; &emsp; คำสั่ง vgchange นอกจากจะใช้สำหรับ active และ deactive เเล้ว มันยังสามารถที่จะใช้ในการเปลี่ยน parameters ได้อีกด้วย
+&emsp; &emsp; &emsp; คำสั่ง `vgchange` นอกจากจะใช้สำหรับ active และ deactive เเล้ว มันยังสามารถที่จะใช้ในการเปลี่ยน parameters ได้อีกด้วย
 
 example:
 - `vgchange -l 128 /dev/vg00` : เป็นการเปลี่ยนจำนวน logical volume สูงสุดของ volume group vg00 เป็น 128
@@ -203,7 +203,7 @@ example:
 ## การลบ Volume groups
 
 
-    # vgremove ชื่อของvolume-group ที่ต้องการจะลบ
+    vgremove ชื่อของvolume-group ที่ต้องการจะลบ
 
 example:
 - `vgremove vg01`
@@ -248,7 +248,7 @@ example:
 
 ## การเปลี่ยนชื่อ Volume group
 
-    # vgrename ชื่อVolume-groupทเก่า ชื่อVolume-groupใหม่
+    vgrename ชื่อVolume-groupทเก่า ชื่อVolume-groupใหม่
 
 example:
 - `vgrename /dev/vg02 /dev/my_volume_group` : เปลี่ยนจาก vg02 เป็น my_volume_group
