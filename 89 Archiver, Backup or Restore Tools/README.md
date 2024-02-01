@@ -113,6 +113,44 @@ mydocs/
 mydocs/doc1
 ```
 
+#### Updating Archives
+
+หากต้องการเปลี่ยนแปลงไฟล์ใดในไดเรกทอรีที่เคยบันทึกไว้ในไฟล์ Archive เราสามารถใช้ตัวเลือก -u เพื่อสั่งให้ tar
+อัปเดตไฟล์ Archive ด้วยไฟล์ที่มีการแก้ไขล่าสุด โดยที่การทำงานของตัวเลือกนี้คือคำสั่ง tar
+จะเปรียบเทียบเวลาของการอัปเดตครั้งล่าสุดสำหรับแต่ละไฟล์ที่บันทึกไว้กับไดเรกทอรีในเครื่องของผู้ใช้และคัดลอกไฟล์ที่มีการเปลี่ยนแปลงไปในไฟล์
+Archive
+ในตัวอย่างถัดไป ผู้ใช้อัปเดตไฟล์ myarch.tar
+ด้วยไฟล์ที่มีการเปลี่ยนแปลงล่าสุด นี้หรือไฟล์ใหม่ที่สร้างขึ้นในไดเรกทอรี mydir ในกรณีนี้ ไฟล์ gifts
+ถูกเพิ่มเข้าไปในไดเรกทอรี mydir
+
+```shell
+tar uvf myarch.tar mydir
+
+mydir/
+mydir/gifts
+```
+
+หากต้องการดูไฟล์ที่เก็บอยู่ในไฟล์ Archive เราสามารถใช้คำสั่ง tar พร้อมกับตัวเลือก -t โดยในตัวอย่างถัดไป
+จะแสดงรายการของไฟล์ทั้งหมดที่เก็บในอาร์กีฟ myarch.tar:
+
+```shell
+tar tvf myarch.tar
+
+drwxr-xr-x root/root 0  2000-10-24 21:38:18   mydir/
+drwxr-xr-x root/root 0  2000-10-24 21:38:51   mydir/reports/
+-rw-r--r-- root/root 22 2000-10-24 21:38:40   mydir/reports/weather
+-rw-r--r-- root/root 22 2000-10-24 21:38:45   mydir/reports/monday
+-rw-r--r-- root/root 22 2000-10-24 21:38:51   mydir/reports/friday
+-rw-r--r-- root/root 22 2000-10-24 21:38:18   mydir/mymeeting
+-rw-r--r-- root/root 22 2000-10-24 21:36:42   mydir/party
+drwxr-xr-x root/root 0  2000-10-24 21:48:45   mydocs/
+-rw-r--r-- root/root 22 2000-10-24 21:48:45   mydocs/doc1
+drwxr-xr-x root/root 0  2000-10-24 21:54:03   mydir/
+-rw-r--r-- root/root 22 2000-10-24 21:54:03   mydir/gifts
+```
+
+### File Compression: gzip, bzip2, and zip
+
 ## Resources
 
 - [Archive and retrieve your data (UNIX and Linux)](https://www.ibm.com/docs/en/spectrum-protect/8.1.9?topic=clients-archive-retrieve-your-data-unix-linux)
