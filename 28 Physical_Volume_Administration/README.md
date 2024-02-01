@@ -122,6 +122,7 @@ _ผลลัพท์_
 ## 2. Displaying Physical Volumes
 มี 3 คำสั่งที่สามารถใช้ในการแสดง Properties ของ LVM Physical Volumes:<br>`pvs`, `pvdisplay`, และ `pvscan`
 
+### 2.1 คำสั่ง pvs
 - คำสั่ง `pvs` ให้ข้อมูลการตั้งค่าของ Physical Volume แสดงผลหนึ่งบรรทัดต่อ Physical Volume
 ```
 pvs
@@ -133,7 +134,7 @@ pvs
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G
 ```
 
-### Customize Display
+#### Customize Display
 - คำสั่ง `pvs` ทำให้ควบคุมการฟอร์แมตได้ดีมาก ๆ, และมีประโยชน์ในการทำ Scripting อีกด้วย โดยในการแก้ไข Output ของการใช้คำสั่ง `pvs` สามารถทำได้
 และสามารถเปลี่ยนฟิลด์ที่อยากให้แสดงให้มากกว่าปกติ โดยการใช้ Argument `-o`
 ```
@@ -219,6 +220,32 @@ pvs --separator = --aligned
 | `pv_uuid` | PV UUID | The UUID of the physical volume |
 
 Information: [Customized Reporting for LVM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
+- สามารถใช้คำสั่ง `pvs -a` เพื่อตรวจสอบ Devices โดย LVM ที่ไม่ได้ถูกกำหนดเป็น LVM Physical Volumes
+```
+pvs -a
+```
+```
+  PV                             VG     Fmt  Attr PSize  PFree
+  /dev/VolGroup00/LogVol01                   --       0      0
+  /dev/new_vg/lvol0                          --       0      0
+  /dev/ram                                   --       0      0
+  /dev/ram0                                  --       0      0
+  /dev/ram2                                  --       0      0
+  /dev/ram3                                  --       0      0
+  /dev/ram4                                  --       0      0
+  /dev/ram5                                  --       0      0
+  /dev/ram6                                  --       0      0
+  /dev/root                                  --       0      0
+  /dev/sda                                   --       0      0
+  /dev/sdb                                   --       0      0
+  /dev/sdb1                      new_vg lvm2 a-   17.14G 17.14G
+  /dev/sdc                                   --       0      0
+  /dev/sdc1                      new_vg lvm2 a-   17.14G 17.09G
+  /dev/sdd                                   --       0      0
+  /dev/sdd1                      new_vg lvm2 a-   17.14G 17.14G
+```
+
+### 2.2 คำสั่ง pvdisplay
 
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
 
