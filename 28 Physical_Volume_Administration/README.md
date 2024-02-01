@@ -218,6 +218,8 @@ pvs --separator = --aligned
 | `pv_used` | Used | The amount of space currently used on the physical volume |
 | `pv_uuid` | PV UUID | The UUID of the physical volume |
 
+Information: [a](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
+
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
 
 ก่อนจะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน
