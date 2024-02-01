@@ -58,6 +58,10 @@ $ tar cvf myarch.tar mydir
 mydir/
 mydir/reports/
 mydir/reports/weather
+mydir/reports/monday
+mydir/reports/friday
+mydir/mymeeting
+mydir/party
 ```
 
 | Option   | Description                                                                                           |
@@ -75,6 +79,39 @@ mydir/reports/weather
 | v        | Displays each filename as it is archived.                                                             |
 | z        | Compresses or decompresses files using gzip.                                                          |
 | j        | Compresses or decompresses files using bzip2.                                                         |
+
+#### Extracting Archives
+
+ผู้ใช้สามารถดึงไฟล์และไดเรกทอรีจากไฟล์ Archive ได้โดยใช้ตัวเลือก x และยังมีตัวเลือกเสริมดังนี้:
+
+- **xf:** จะดึงไฟล์จากไฟล์อาร์กีฟหรืออุปกรณ์ การดึงข้อมูลด้วย tar จะสร้างไดเรกทอรีทั้งหมด
+
+ในตัวอย่างถัดไป ตัวเลือก xf จะสั่งให้ tar ดึงไฟล์และไดเรกทอรีทั้งหมดจากไฟล์
+.tar ชื่อ myarch.tar:
+
+```shell
+$ tar xvf myarch.tar
+
+mydir/
+mydir/reports/
+mydir/reports/weather
+mydir/reports/monday
+mydir/reports/friday
+mydir/mymeeting
+mydir/party
+```
+
+สามารถใข้ตัวเลือก r เพื่อเพิ่มไฟล์เข้าไปในอาร์กีฟที่สร้างไว้แล้ว ตัวเลือก r จะเพิ่มไฟล์เข้าไปในอาร์กีฟ
+เช่นในตัวอย่างถัดไป
+ผู้ใช้เพิ่มไฟล์ในไดเรกทอรี letters เข้าไปในไฟล์ Archive ชื่อว่่า myarch.tar ที่สร้างไว้แล้ว
+และนี่คือผลลัพธ์หลังจากการทำงานเสร็จโดยจะแสดงไดเรกทอรีทั้งหมดภายใน myarch.tar:
+
+```shell
+$ tar rvf myarch.tar mydocs
+
+mydocs/
+mydocs/doc1
+```
 
 ## Resources
 
