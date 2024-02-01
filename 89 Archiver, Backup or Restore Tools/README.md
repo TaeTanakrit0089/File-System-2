@@ -1,1 +1,67 @@
 # Archiver, Backup/Restore Tools
+
+Archiver, Backup/Restore Tools คือเครื่องมือที่ช่วยในการสำรองข้อมูลและการกู้คืนข้อมูลในระบบ Linux
+มีหลากหลายเครื่องมือที่มีคุณสมบัติและฟังก์ชันที่แตกต่างกัน โดยในหัวข้อนี้จะแบ่งออกเป็น 2 ส่วนหลักๆ ได้แก่
+
+1. **Archiver:** เป็นโปรแกรมหรือเครื่องมือที่ใช้สำหรับบีบอัด (compress) และแยกไฟล์ (extract)
+   ที่มีอยู่ในรูปแบบของเครื่องมือสำหรับบีบอัดและแยกไฟล์ เช่น WinRAR, 7-Zip, และ WinZip
+   โดยการบีบอัดไฟล์ช่วยลดขนาดของไฟล์เพื่อประหยัดพื้นที่จัดเก็บและลดเวลาในการถ่ายโอนข้อมูล
+2. **Backup and Restore Tools:** ป็นเครื่องมือหรือโปรแกรมที่ใช้สำหรับสำรองข้อมูล (backup) และคืนค่าข้อมูล (restore)
+   โดยมักให้ความสามารถในการสำรองข้อมูลจากอุปกรณ์หรือระบบเก็บข้อมูลต่างๆ เช่น ฮาร์ดไดร์ฟ และการคืนค่าข้อมูลเมื่อจำเป็น
+   เพื่อป้องกันข้อมูลจากการสูญหายหรือเสียหาย
+
+## Archiver and Compressing Files
+
+Archives
+ถูกใช้ในการสำรองไฟล์หรือรวมไฟล์ให้เป็นแพ็คเกจซึ่งช่วยให้สามารถถ่ายโอนเป็นไฟล์เดียวทางอินเทอร์เน็ตหรือโพสต์บนไซต์ FTP
+เพื่อให้ผู้ใช้สามารถดาวน์โหลดไฟล์ได้ง่ายขึ้น
+
+เครื่องมือที่ใช้ในการ archives ไฟล์เรียกว่า **Archiver** โดยตัวสำคํญที่ถูกใช้ใน Linux และ Unix คือ tar ซึ่งมีส่วนหน้า
+GUI อยู่หลายส่วน
+และยังมีโปรแกรม Archiver ตัวอื่นๆ ที่ยังสามารถใช้งานได้เช่น GNU zip (gzip), Zip, bzip และ compress
+
+### I. Archive Files and Devices: tar
+
+Tar ใช้สำหรับสร้างไฟล์ archive โดยที่สามารถเลือกบีบไฟล์ได้เป็นบางไฟล์, อัปเดตไฟล์,
+บีบไฟล์ใหม่เข้าไปอีกทั้งยังสามารถบีบอัดไฟล์ได้ด้วยไฟล์ทั้งหมดใน Directory นั้นๆ หรือภายใน Sub-Directories ได้ด้วย
+
+Tar ได้รับการออกแบบมาเพื่อสร้างไฟล์บับอัดบนเทป คำว่า “tar” ย่อมาจากคำว่า "Tape Archive"
+ซึ่งสามารถสร้างไฟล์บีบอัดบนอุปกรณ์ใดก็ได้ เช่น Floppy Disk หรือสามารถบีบอัดไฟล์ที่ถูกบีบอัดแล้วอีกทีได้ด้วย
+อีกทั้งยังเหมาะกับการที่เอาไว้บีบอัดไฟล์หลายๆ ไฟล์ให้เป็นไฟล์เดียวเพื่อใช้ในการส่งข้ามเครือข่ายอินเตอร์เน็ตอีกด้วย
+
+มีตัวเลือกอื่นที่สามารถมาใช้แทน Tar ได้คือ **_Pax_** โดยที่ pax
+เป็นเครื่องมือที่ใช้สำหรับจัดการไฟล์เอาไว้ในรูปแบบของสิ่งที่เรียกว่า archive บนระบบ Unix โดย pax
+ถูกออกแบบมาเพื่อใช้งานกับรูปแบบอาร์กีฟต่างๆ เช่น cpio, bcpio, และ tar และยังสามารถสร้าง แยกแยะ และรายการ archive ได้ด้วย
+pax
+โดยในการใช้งาน pax จะมีประโยชน์โดยเฉพาะเมื่อต้องจัดการกับไฟล์ Archive ที่สร้างขึ้นมาบนระบบ Unix โดยมีรูปแบบที่แตกต่างกัน
+
+#### Creating Archives
+
+บน Linux, คำสั่ง tar มักถูกใช้สร้างไฟล์ Archive บนอุปกรณ์ โดยสามารถนำ tar
+ไปสร้างไฟล์ Archive ลงในอุปกรณ์หรือไฟล์ที่ต้องการโดยใช้ตัวเลือก f พร้อมกับชื่อของอุปกรณ์หรือไฟล์ โครงสร้างของคำสั่ง tar
+ที่ใช้ตัวเลือก f จะแสดงในตัวอย่างต่อไปนี้ อุปกรณ์หรือชื่อไฟล์มักจะถูกอ้างถึงในไฟล์ Archive เมื่อสร้างไฟล์สำหรับไฟล์ Archive tar
+ชื่อไฟล์มักจะได้รับส่วนขยาย .tar
+
+```console
+tar optionsf archive-name.tar directory-and-file-names
+```
+
+| Option   | Description                                                                                           |
+|----------|-------------------------------------------------------------------------------------------------------|
+| c        | Creates a new archive.                                                                                |
+| t        | Lists the names of files in an archive.                                                               |
+| r        | Appends files to an archive.                                                                          |
+| U        | Updates an archive with new and changed files; adds only those files modified or not already present. |
+| --delete | Removes a file from the archive.                                                                      |
+| w        | Waits for confirmation from the user before archiving each file; enables selective updating.          |
+| x        | Extracts files from an archive.                                                                       |
+| m        | When extracting a file, no new timestamp is assigned.                                                 |
+| M        | Creates a multi-volume archive to be stored on several floppy disks.                                  |
+| f        | Specifies the file to save the archive to, instead of the default tape device.                        |
+| v        | Displays each filename as it is archived.                                                             |
+| z        | Compresses or decompresses files using gzip.                                                          |
+| j        | Compresses or decompresses files using bzip2.                                                         |
+
+## Resources
+
+- [Archive and retrieve your data (UNIX and Linux)](https://www.ibm.com/docs/en/spectrum-protect/8.1.9?topic=clients-archive-retrieve-your-data-unix-linux)

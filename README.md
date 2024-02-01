@@ -4,7 +4,7 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 [Contributors](#Contributors)
 
-## Introduction
+## Introduction to File System
 
 สวัสดีครับ ในรายงานนี้นะครับ เราก็จะมาทำความรู้จักกับระบบของ File Systems เบื้องต้นนะครับ
 ซึ่งระบบ File Systems
