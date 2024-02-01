@@ -307,6 +307,28 @@ pvscan
 
 </details>
 
+## 3. Preventing Allocation on a Physical Volume
+สามารถระงับการจัดสรรพื้นที่ว่างเพิ่มของ Physical Volumes หนึ่งหรือมากกว่านั้น ด้วยคำสั่ง `pvchange` อาจจำเป็นถ้าตัว Disk เกิดข้อผิดพลาดขึ้น หรือถ้าต้องการจะลบตัว Physical Volume
+
+ตามตัวอย่างเป็นการระงับไม่ให้จัดสรรตัว `/dev/sdk1`
+```
+pvchange -x n /dev/sdk1
+```
+และก็สามารถใช้ Arguments `-xy` ในคำสั่งของ `pvchange` เพื่ออนุณาตให้จัดสรรได้อีกครั้ง หลังจากที่ทำการระงับไป
+
+## 4. Resizing a Physical Volume
+ถ้าต้องการเปลี่ยนขนาดของโครงสร้างของ Block Device ไม่ว่าเหตุผลใดก็ตาม ก็ใช้คำสั่ง `pvresize` เพื่ออัพเดท LVM ด้วยขนาดที่เปลี่ยน สามารถดำเนินคำสั่งนี้ในขณะที่ LVM ใช้ Physical Volume อยู่
+
+## 5. Removing Physical Volumes
+ถ้า Device ไม่จำเป็นในการใช้โดย LVM อีกแล้ว สามารถที่จะลบ LVM Label ด้วยคำสั่ง `pvremove` การทำคำสั่ง `pvremove` เป็นลบ LVM Metadata ของ Physical Volume  ที่ว่าง
+
+```
+pvremove /dev/ram15
+```
+```
+  Labels on physical volume "/dev/ram15" successfully wiped
+```
+
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
 
 ก่อนจะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน
