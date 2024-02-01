@@ -50,7 +50,7 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 
 ## Contributors
 
-| ID       | Name                                  | Sub Topics                     | Img                                                                              |
+| ID       | Name                                  | Sub Topic                      | Img                                                                              |
 |----------|---------------------------------------|--------------------------------|----------------------------------------------------------------------------------|
 | 65070001 | นางสาวกชกร ครุธเวโช (แพรไหม)          | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
 | 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ (วิน) | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
@@ -72,13 +72,23 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 <img alt="Sumet" src="/assets/img/members/Sumet-200x200.png"/>
 </div>
 
+## Tools
+
+- **IntelliJ:** เป็นเครื่องมือหลักที่ใช้ในการเขียนภาษา Markdown และเชื่อมกับ GitHub
+  ![IntelliJ](assets/img/intelliJ_ScreenShot.webp)
+
+[//]: # (<img height="100" src="assets/img/intelliJ.webp" title="IntelliJ" width="100"/>)
+
 ## Source
 
 ### Book
+
 - Paul Cobbau, Linux Storage - https://linux-training.be/linuxsto.pdf
-- Richard Petersen, The Complete Reference Linux 6th Edition - https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf
+- Richard Petersen, The Complete Reference Linux 6th
+  Edition - https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf
 
 ### Webpage
+
 - Linux File System - GeeksforGeeks. https://www.geeksforgeeks.org/linux-file-system/.
 - Linux File System: Understanding Directory Structure ... -
   howtouselinux. https://www.howtouselinux.com/post/linux-file-system-understanding-directory-structure-and-navigating-the-file-system.
