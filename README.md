@@ -50,7 +50,7 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 
 ## Contributors
 
-| ID       | Name                                  | Sub Topics                     | Img                                                                              |
+| ID       | Name                                  | Sub Topic                      | Img                                                                              |
 |----------|---------------------------------------|--------------------------------|----------------------------------------------------------------------------------|
 | 65070001 | นางสาวกชกร ครุธเวโช (แพรไหม)          | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
 | 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ (วิน) | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
