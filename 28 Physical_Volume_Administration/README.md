@@ -68,13 +68,13 @@ Partition ที่อยู่ใน Logical Volume เมื่อสร้า
 ### 1.1 Initializing Physical Volumes
 ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
 
-โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่ใช้ในภายหลังเป็นส่วนของ LVM Logical Volumes
+โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
 
 ```CIL
 # pvcreate /dev/sdd /dev/sde /dev/sdf
 ```
 
-ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้ง Disk เริ่ม: รันคำสั่ง `pvcreate` ของ Partition ตามดังตัวอย่างในการเริ่ม Partition `/dev/hdb1` โดยเป็น LVM Physical Volume สำหรับใช้กับส่วนของ LVM Logical Volume
+ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้งหมดของ Disk: รันคำสั่ง `pvcreate` ของ Partition ตามดังตัวอย่างในการเริ่ม Partition `/dev/hdb1` โดยเป็น LVM Physical Volume สำหรับใช้กับส่วนของ LVM Logical Volume
 
 ```CIL
 # pvcreate /dev/hdb1
