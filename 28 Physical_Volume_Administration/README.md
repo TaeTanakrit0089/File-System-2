@@ -55,7 +55,7 @@ Partition ที่อยู่ใน Logical Volume เมื่อสร้า
 ## 1. Creating Physical Volumes
 โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น Physical Volumes หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น Physical Volumes โดยวิธีทำก็คือ
 ใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออื่น ๆ โดยต้องตั้งค่า Partition id เป็น `0x8e` ถ้าต้องการจะให้ทั้ง Disk เป็น Physical Volume ตัว Disk ต้องไม่มี Partition Table สำหรับ DOS Disk Partition, สำหรับทั้ง Disk ต้องมีแค่ Partition Table ที่ต้องถูกล้างข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้ว โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
-```CIL
+```
 dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 ```
 
@@ -143,7 +143,7 @@ pvs
 
 <details>
 
-<summary><h5>Customize Display</h5></summary>
+<summary><h4>Customize Display</h4></summary>
 
 - คำสั่ง `pvs` ทำให้ควบคุมการฟอร์แมตได้ดีมาก ๆ, และมีประโยชน์ในการทำ Scripting อีกด้วย โดยในการแก้ไข Output ของการใช้คำสั่ง `pvs` สามารถทำได้
 และสามารถเปลี่ยนฟิลด์ที่อยากให้แสดงให้มากกว่าปกติ โดยการใช้ Argument `-o`
@@ -325,7 +325,7 @@ pvchange -x n /dev/sdk1
 ถ้าต้องการเปลี่ยนขนาดของโครงสร้างของ Block Device ไม่ว่าเหตุผลใดก็ตาม ก็ใช้คำสั่ง `pvresize` เพื่ออัพเดท LVM ด้วยขนาดที่เปลี่ยน สามารถดำเนินคำสั่งนี้ในขณะที่ LVM ใช้ Physical Volume อยู่
 
 ## 5. Removing Physical Volumes
-ถ้า Device ไม่จำเป็นในการใช้โดย LVM อีกแล้ว สามารถที่จะลบ LVM Label ด้วยคำสั่ง `pvremove` การทำคำสั่ง `pvremove` เป็นลบ LVM Metadata ของ Physical Volume  ที่ว่าง
+ถ้า Device ไม่จำเป็นในการใช้ด้วย LVM อีกแล้ว สามารถที่จะลบ LVM Label ด้วยคำสั่ง `pvremove` การทำคำสั่ง `pvremove` เป็นลบ LVM Metadata ของ Physical Volume ที่ว่าง
 
 ```
 pvremove /dev/ram15
