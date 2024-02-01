@@ -4,6 +4,16 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 [Contributors](#Contributors)
 
+## Introduction to File System
+
+สวัสดีครับ ในรายงานนี้นะครับ เราก็จะมาทำความรู้จักกับระบบของ File Systems เบื้องต้นนะครับ
+ซึ่งระบบ File Systems
+ก็ถือว่าเป็นระบบใช้โดยคอมพิวเตอร์และระบบปฏิบัติการเพื่อจัดระเบียบและเก็บข้อมูลบนอุปกรณ์เก็บข้อมูลนะครับ
+ในรายงานนี้นะครับหลักๆเลยก็จะ เรียนรู้ความแตกต่างระหว่าง
+File Systems แต่ละหัวข้อนะครับ เช่นระบบ Files, Directories ฯลฯ คืออะไรนะครับ มันทำงานยังไง แล้วมันแตกต่างกันยังไงนะครับ
+เมื่อเพื่อนๆ อ่านรายงานนี้นะครับหรือว่าศึกษารายงานนี้จนจบแล้วนะครับก็หวังว่าเพื่อนๆ
+จะมีความสามารถที่จะอธิบายให้เพื่อนคนอื่นฟังได้ครับว่าระบบ File System มันคืออะไรนะครับ
+
 ## Overview
 
 ระบบไฟล์ (File System) ใน Linux
@@ -40,7 +50,7 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 ## Contributors
 
-| ID       | Name                                  | Sub Topics                     | Img                                                                              |
+| ID       | Name                                  | Sub Topic                      | Img                                                                              |
 |----------|---------------------------------------|--------------------------------|----------------------------------------------------------------------------------|
 | 65070001 | นางสาวกชกร ครุธเวโช (แพรไหม)          | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
 | 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ (วิน) | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
@@ -62,7 +72,22 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 <img alt="Sumet" src="/assets/img/members/Sumet-200x200.png"/>
 </div>
 
-### Source: Conversation with Bing, 1/29/2024
+## Tools
+
+- **IntelliJ:** เป็นเครื่องมือหลักที่ใช้ในการเขียนภาษา Markdown และเชื่อมกับ GitHub
+  ![IntelliJ](assets/img/intelliJ_ScreenShot.webp)
+
+[//]: # (<img height="100" src="assets/img/intelliJ.webp" title="IntelliJ" width="100"/>)
+
+## Source
+
+### Book
+
+- Paul Cobbau, Linux Storage - https://linux-training.be/linuxsto.pdf
+- Richard Petersen, The Complete Reference Linux 6th
+  Edition - https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf
+
+### Webpage
 
 - Linux File System - GeeksforGeeks. https://www.geeksforgeeks.org/linux-file-system/.
 - Linux File System: Understanding Directory Structure ... -
@@ -71,3 +96,4 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 - Partitions And Filesystems In Linux –
   Introduction. https://www.linuxfordevices.com/tutorials/linux/partitions-and-filesystems.
 - Linux File System - javatpoint. https://www.javatpoint.com/linux-file-system.
+
