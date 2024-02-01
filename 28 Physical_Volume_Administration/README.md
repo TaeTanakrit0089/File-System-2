@@ -59,7 +59,10 @@ Partition ที่อยู่ใน Logical Volume เมื่อสร้า
 dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 ```
 
-### 1.1 Initializing Physical Volumes
+<details>
+
+<summary><h3>1.1 Initializing Physical Volumes</h3></summary>
+
 ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
 
 โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
@@ -71,8 +74,12 @@ pvcreate /dev/sdd /dev/sde /dev/sdf
 ```
 pvcreate /dev/hdb1
 ```
+</details>
 
-### 1.2 Scanning for Block Devices
+<details>
+  
+<summary><h3>1.2 Scanning for Block Devices</h3></summary>
+
 สามารถสแกนหา Block Devices ที่จะได้ใช้เป็น Physical Volumes โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
 
 ```
@@ -114,10 +121,15 @@ _ผลลัพท์_
   4 LVM physical volumes
 ```
 
+</details>
+
 ## 2. Displaying Physical Volumes
 มี 3 คำสั่งที่สามารถใช้ในการแสดง Properties ของ LVM Physical Volumes:<br>`pvs`, `pvdisplay`, และ `pvscan`
 
-### 2.1 คำสั่ง pvs
+<details>
+
+<summary><h3>2.1 คำสั่ง pvs</h3></summary>
+
 - คำสั่ง `pvs` ให้ข้อมูลการตั้งค่าของ Physical Volume แสดงผลหนึ่งบรรทัดต่อ Physical Volume
 ```
 pvs
@@ -141,6 +153,7 @@ pvs -o pv_name,pv_size
   /dev/sdc1  17.14G
   /dev/sdd1  17.14G
 ```
+<hr />
 
 - สามารถที่จะเพิ่มฟิลด์ไปยัง Output ด้วยสัญลักษณ์บวก (+) โดยเอามาใช้ร่วมกับ Argument `-o`
 ```
@@ -152,6 +165,7 @@ pvs -o +pv_uuid
   /dev/sdc1  new_vg lvm2 a-   17.14G 17.09G Joqlch-yWSj-kuEn-IdwM-01S9-X08M-mcpsVe
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G yvfvZK-Cf31-j75k-dECm-0RZ3-0dGW-UqkCS
 ```
+<hr />
 
 - การเพิ่ม Argument `-v` ไปยังคำสั่งจะเพิ่มฟิลด์เพิ่มเติม เช่นคำสั่ง `pvs -v` จะแสดงฟิลด์ `DevSize` และ `PV UUID` เพิ่มเติมไปยังฟิลด์ตามปกติ
 ```
@@ -164,6 +178,8 @@ pvs -v
   /dev/sdc1  new_vg lvm2 a-   17.14G 17.09G  17.14G Joqlch-yWSj-kuEn-IdwM-01S9-XO8M-mcpsVe
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G  17.14G yvfvZK-Cf31-j75k-dECm-0RZ3-0dGW-tUqkCS
 ```
+<hr />
+
 - Argument `--noheadings` จะไม่แสดง Headings line สามารถนำไปใช้ในการเขียน Scripts
 ตัวอย่างก็เช่นการใช้ Argument `--noheadings` ในการร่วมกับ Argument `pv_name` โดยมันจะแสดงลิสต์ทั้งหมดของ Physical Volumes
 ```
@@ -174,6 +190,8 @@ pvs --noheadings -o pv_name
   /dev/sdc1
   /dev/sdd1
 ```
+<hr />
+
 - Argument `--separator (separator)` ใช้ตัว separator ในการแยกแต่ละฟิลด์
 ตัวอย่างการแยก Output ฟิลด์ของคำสั่ง `pvs` ด้วยสัญลักษณ์เท่ากับ (=)
 ```
@@ -185,6 +203,8 @@ pvs --separator =
   /dev/sdc1=new_vg=lvm2=a-=17.14G=17.09G
   /dev/sdd1=new_vg=lvm2=a-=17.14G=17.14G
 ```
+<hr />
+
 - เพื่อให้แต่ละฟิลด์นั้นเว้นระยะห่าง เมื่อใช้ Argument `separator` ต้องใช้ร่วมกับ Argument `--aligned`
 ```
 pvs --separator = --aligned
@@ -195,6 +215,7 @@ pvs --separator = --aligned
   /dev/sdc1 =new_vg=lvm2=a-  =17.14G=17.09G
   /dev/sdd1 =new_vg=lvm2=a-  =17.14G=17.14G
 ```
+<hr />
 
 ### ตารางฟิลด์ที่แสดงในคำสั่ง pvs
 | Argument | Header | Description |
@@ -215,6 +236,8 @@ pvs --separator = --aligned
 | `pv_uuid` | PV UUID | The UUID of the physical volume |
 
 Information: [Customized Reporting for LVM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
+<hr />
+
 - สามารถใช้คำสั่ง `pvs -a` เพื่อตรวจสอบ Devices โดย LVM ที่ไม่ได้ถูกกำหนดเป็น LVM Physical Volumes
 ```
 pvs -a
@@ -240,7 +263,49 @@ pvs -a
   /dev/sdd1                      new_vg lvm2 a-   17.14G 17.14G
 ```
 
-### 2.2 คำสั่ง pvdisplay
+</details>
+
+<details>
+
+<summary><h3>2.2 คำสั่ง pvdisplay</h3></summary>
+
+คำสั่ง `pvdisplay` ให้ Output ออกมารายละเอียดแต่ละ Physical Volume เป็นหลายบรรทัด มันจะแสดงคุณสมบัติของ Physical (Size, Extents, Volume Group, และอื่น ๆ) ในรูปแบบที่ตั้งค่าไว้
+```
+pvdisplay
+```
+```
+  --- Physical volume ---
+  PV Name               /dev/sdc1
+  VG Name               new_vg
+  PV Size               17.14 GB / not usable 3.40 MB
+  Allocatable           yes
+  PE Size (KByte)       4096
+  Total PE              4388
+  Free PE               4375
+  Allocated PE          13
+  PV UUID               Joqlch-yWSj-kuEn-IdwM-01S9-XO8M-mcpsVe
+```
+
+</details>
+
+<details>
+
+<summary><h3>2.3 คำสั่ง pvscan</h3></summary>
+
+คำสั่ง `pvscan` จะสแกน Physical Volumes ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
+```
+pvscan
+```
+```
+ PV /dev/sdb2   VG vg0   lvm2 [964.00 MB / 0   free]
+ PV /dev/sdc1   VG vg0   lvm2 [964.00 MB / 428.00 MB free]
+ PV /dev/sdc2            lvm2 [964.84 MB]
+ Total: 3 [2.83 GB] / in use: 2 [1.88 GB] / in no VG: 1 [964.84 MB]
+```
+
+สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน Physical Volumes ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
+
+</details>
 
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
 
