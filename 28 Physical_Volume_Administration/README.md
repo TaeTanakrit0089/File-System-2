@@ -141,7 +141,10 @@ pvs
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G
 ```
 
-#### Customize Display
+<details>
+
+<summary><h5>Customize Display</h5></summary>
+
 - คำสั่ง `pvs` ทำให้ควบคุมการฟอร์แมตได้ดีมาก ๆ, และมีประโยชน์ในการทำ Scripting อีกด้วย โดยในการแก้ไข Output ของการใช้คำสั่ง `pvs` สามารถทำได้
 และสามารถเปลี่ยนฟิลด์ที่อยากให้แสดงให้มากกว่าปกติ โดยการใช้ Argument `-o`
 ```
@@ -238,7 +241,9 @@ pvs --separator = --aligned
 Information: [Customized Reporting for LVM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
 <hr />
 
-- สามารถใช้คำสั่ง `pvs -a` เพื่อตรวจสอบ Devices โดย LVM ที่ไม่ได้ถูกกำหนดเป็น LVM Physical Volumes
+</details>
+
+- สามารถใช้คำสั่ง `pvs -a` เพื่อตรวจสอบ Devices ที่ไม่ได้ถูกกำหนดเป็น LVM Physical Volumes ด้วย LVM
 ```
 pvs -a
 ```
@@ -328,6 +333,8 @@ pvremove /dev/ram15
 ```
   Labels on physical volume "/dev/ram15" successfully wiped
 ```
+
+## Summary
 
 โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
 
