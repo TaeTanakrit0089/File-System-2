@@ -74,11 +74,10 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 
 ## Tools
 
-<img height="100" src="assets/img/intelliJ.webp" title="IntelliJ" width="100"/>
-
-![IntelliJ](assets/img/intelliJ_ScreenShot.webp)
-
 - **IntelliJ:** เป็นเครื่องมือหลักที่ใช้ในการเขียนภาษา Markdown และเชื่อมกับ GitHub
+  ![IntelliJ](assets/img/intelliJ_ScreenShot.webp)
+
+[//]: # (<img height="100" src="assets/img/intelliJ.webp" title="IntelliJ" width="100"/>)
 
 ## Source
 
