@@ -26,8 +26,13 @@ Raw Media Device
     p #แสดงข้อมูลpartitionปัจจุบัน
 ![newfdiskcommand.png](..%2Fassets%2Fimg%2Fmembers%2Fnewfdiskcommand.png)
 ## Mkfs
-### mkfs เป็นคำสั่งในการช่วยสร้างระบบไฟล์บน linux การพิมพ์ mkfs และกด tab สองครั้งจะแสดงชนิด ของระบบไฟล์ที่สามารถสร้างได้
+### mkfs เป็นคำสั่งในการช่วยสร้างระบบไฟล์บน linux การพิมพ์ mkfs และกด tab สองครั้งจะแสดงชนิด ของระบบไฟล์ที่สามารถสร้างได้ การสร้างระบบไฟล์จะเป็นการทำลายข้อมูลใน partition นั้นๆ
 ![mkfstype.png](..%2Fassets%2Fimg%2Fmembers%2Fmkfstype.png)
+## Parted
+### parted เป็นคำสั่งที่ใช้ในการจัดการ partition เหมือนกับ fdisk โดย parted จะสามารถใช้งานได้ง่ายกว่าแต่ช่วงหลังๆ parted เริ่มหายไปต้องทำการติดตั้งถึงจะใช้งานได้  
+### การแสดง partition ปัจจุบัน
+    sudo parted /dev/sda
+    print
 ### References:
     https://en.wikipedia.org/wiki/Raw_device
     https://saixiii.com/fdisk-linux-command/
