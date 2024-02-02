@@ -1,20 +1,20 @@
 # Physical Volumes
 
-หน่วยที่เก็บข้อมูลกายภาพของ LVM Logical Volume นั้นเป็น Block Device โดยอาจเป็น Partition หรือ Disk ทั้งหมด, เพื่อให้
+&emsp;หน่วยที่เก็บข้อมูลกายภาพของ LVM Logical Volume นั้นเป็น Block Device โดยอาจเป็น Partition หรือ Disk ทั้งหมด, เพื่อให้
 Device ใช้ LVM Logical Volume ได้นั้น ตัว Device ต้องเริ่มระบุเป็น **Physical Volume (PV)**, การเริ่มกำหนด Block Device
 หรือก็คือ **Physical Volume** นั้นเป็นการเริ่มการทำงานตอน Device
 
-โดยการทำงานปกติ LVM Label จะอยู่ใน 512-byte Sector ตัวที่สอง โดยสามารถที่จะเปลี่ยนการทำงานของมันได้ โดยการวาง Label ลงบน
+&emsp;โดยการทำงานปกติ LVM Label จะอยู่ใน 512-byte Sector ตัวที่สอง โดยสามารถที่จะเปลี่ยนการทำงานของมันได้ โดยการวาง Label ลงบน
 Sector ไหนก็ได้ของ 4 Sectors แรก เมื่อต้องการจะสร้าง Physical Volume โดยสามารถให้ผู้ใช้คนอื่นใน Sectors สามารถใช้ LVM
 volumes ร่วมกันได้ หากต้องการได้
 
-ตัว LVM Label ช่วยให้ระบุตัวตนที่ถูกและเรียงอุปกรณ์ให้ Physical Device เพราะ Devices สามารถอยู่ลำดับอะไรก็ได้
+&emsp;ตัว LVM Label ช่วยให้ระบุตัวตนที่ถูกและเรียงอุปกรณ์ให้ Physical Device เพราะ Devices สามารถอยู่ลำดับอะไรก็ได้
 เมื่อตอนที่ระบบถูกบูท ตัว LVM Label ยังคงเดิมแม้จะโดนรีบูท หรือผ่าน Cluster
 
-LAM Label ช่วยระบุ Device ของ LVM Physical Volume ได้, มันมี Random Unique Identifier (UUID) ของ Physical Volime
+&emsp;LAM Label ช่วยระบุ Device ของ LVM Physical Volume ได้, มันมี Random Unique Identifier (UUID) ของ Physical Volime
 ในการระบุตัวตน, มันยังเก็บขนาดของ Block Device แบบ Bytes, และยังเก็บที่อยู่ของ LVM Metadat ที่จะถูกเก็บใน Device ด้วย
 
-LVM Metadata เก็บรายละเอียดการตั้งค่าของ LVM Volume Groups บนระบบให้, โดยปกติจะมีสำเนาของ Metadata อยู่ในทุก ๆ Metadata
+&emsp;LVM Metadata เก็บรายละเอียดการตั้งค่าของ LVM Volume Groups บนระบบให้, โดยปกติจะมีสำเนาของ Metadata อยู่ในทุก ๆ Metadata
 Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Metadata เล็กและเก็บรูปแบบ ASCII
 
 ## LVM Physical Volume Layout
@@ -30,7 +30,7 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
 
 ## Multiple Partitions on a Disk
 
-LVM สามารถทำให้สร้าง Physical Volume จาก Disk Partitions, Red Hat แนะนำให้สร้างแค่ Partition ตัวเดียวเพื่อให้คลุม Disk
+&emsp;LVM สามารถทำให้สร้าง Physical Volume จาก Disk Partitions, Red Hat แนะนำให้สร้างแค่ Partition ตัวเดียวเพื่อให้คลุม Disk
 ได้ทั้งหมดไปเป็น Label ไปเป็น LVM Physical Volume ตามเหตุผลดังนี้
 
 - Administrative convenience<br>
@@ -42,18 +42,20 @@ LVM สามารถทำให้สร้าง Physical Volume จาก D
   Physical Disk เดียวกัน การสร้าง Logical Volume ในการแบ่งพวกมันออกจากกัน มันอาจแบ่งให้อยู่คนละ Partition ที่อยู่ Disk
   เดียวกันได้ และอาจส่งผลให้เป็นการลดประสิทธิภาพมากกว่าเพิ่มประสิทธิภาพ
 
-แม้จะไม่แนะนำให้ทำ แต่อาจมีสถานการณ์บางอย่างที่ทำให้จำเป็นต้องแบ่ง Disk ออกจาก LVM Physical Volume ตัวอย่างเช่น
-ในระบบที่มี Disk ไม่มากอาจจำเป็นต้องส่งข้อมูลไปมาระหว่าง Partitions เมื่อต้องการที่จะโยกย้ายระบบเดิมไปยัง LVM Volumes
-เพิ่มเติมก็คือถ้ามี Disk ขนาดใหญ่มาก และต้องการจะมีมากกว่า 1 Volume Group ในการบริหารงั้นมันก็จำเป็นในการแบ่ง Disk (
-Partition) ถ้าต้องการ Disk ที่มีมากกว่า 1 Partition และ Partitions ทั้งคู่ก็อยู่ใน Volume Group เดียวกัน ควรดูแลเฉพาะ
-Partition ที่อยู่ใน Logical Volume เมื่อสร้าง Striped Volumes
+> [!Tip]
+> &emsp;แม้จะไม่แนะนำให้ทำ แต่อาจมีสถานการณ์บางอย่างที่ทำให้จำเป็นต้องแบ่ง Disk ออกจาก LVM Physical Volume ตัวอย่างเช่น
+> ในระบบที่มี Disk ไม่มากอาจจำเป็นต้องส่งข้อมูลไปมาระหว่าง Partitions เมื่อต้องการที่จะโยกย้ายระบบเดิมไปยัง LVM Volumes
+> เพิ่มเติมก็คือถ้ามี Disk ขนาดใหญ่มาก และต้องการจะมีมากกว่า 1 Volume Group ในการบริหารงั้นมันก็จำเป็นในการแบ่ง Disk (Partition)
+> ถ้าต้องการ Disk ที่มีมากกว่า 1 Partition และ Partitions ทั้งคู่ก็อยู่ใน Volume Group เดียวกัน ควรดูแลเฉพาะ
+> Partition ที่อยู่ใน Logical Volume เมื่อสร้าง Striped Volumes
 
+<hr />
 
 # Physical Volume Administration
-มีหน้าที่ในการจัดการ Physical Volumes ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server ใช้ในการตรวจสอบ เพิ่ม ลบ ดูแล
+&emsp;มีหน้าที่ในการจัดการ Physical Volumes ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server ใช้ในการตรวจสอบ เพิ่ม ลบ ดูแล
 
 ## 1. Creating Physical Volumes
-โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น Physical Volumes หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น Physical Volumes โดยวิธีทำก็คือ
+&emsp;โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น Physical Volumes หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น Physical Volumes โดยวิธีทำก็คือ
 ใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออื่น ๆ โดยต้องตั้งค่า Partition id เป็น `0x8e` ถ้าต้องการจะให้ทั้ง Disk เป็น Physical Volume ตัว Disk ต้องไม่มี Partition Table สำหรับ DOS Disk Partition, สำหรับทั้ง Disk ต้องมีแค่ Partition Table ที่ต้องถูกล้างข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้ว โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
 ```
 dd if=/dev/zero of=PhysicalVolume bs=512 count=1
@@ -63,29 +65,32 @@ dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 
 <summary><h3>1.1 Initializing Physical Volumes</h3></summary>
 
-ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
+&emsp;ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
 
-โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
+&emsp;โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
 ```
 pvcreate /dev/sdd /dev/sde /dev/sdf
 ```
 
-ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้งหมดของ Disk: รันคำสั่ง `pvcreate` ของ Partition ตามดังตัวอย่างในการเริ่ม Partition `/dev/hdb1` โดยเป็น LVM Physical Volume สำหรับใช้กับส่วนของ LVM Logical Volume
+&emsp;ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้งหมดของ Disk รันคำสั่ง
+<br>`pvcreate` ของ Partition ตามดังตัวอย่างในการเริ่ม Partition `/dev/hdb1` โดยเป็น LVM Physical Volume สำหรับใช้กับส่วนของ LVM Logical Volume
 ```
 pvcreate /dev/hdb1
 ```
 </details>
 
+<hr />
+
 <details>
   
 <summary><h3>1.2 Scanning for Block Devices</h3></summary>
 
-สามารถสแกนหา Block Devices ที่จะได้ใช้เป็น Physical Volumes โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
+&emsp;สามารถสแกนหา Block Devices ที่จะได้ใช้เป็น Physical Volumes โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
 
 ```
 lvmdiskscan
 ```
-_ผลลัพท์_
+&emsp;_ผลลัพท์_
 ```
   /dev/ram0                    [       16.00 MB]
   /dev/sda                     [       17.15 GB]
@@ -123,8 +128,10 @@ _ผลลัพท์_
 
 </details>
 
+<hr />
+
 ## 2. Displaying Physical Volumes
-มี 3 คำสั่งที่สามารถใช้ในการแสดง Properties ของ LVM Physical Volumes:<br>`pvs`, `pvdisplay`, และ `pvscan`
+&emsp;มี 3 คำสั่งที่สามารถใช้ในการแสดง Properties ของ LVM Physical Volumes:<br>`pvs`, `pvdisplay`, และ `pvscan`
 
 <details>
 
@@ -134,6 +141,7 @@ _ผลลัพท์_
 ```
 pvs
 ```
+&emsp;_ผลลัพท์_
 ```
   PV         VG     Fmt  Attr PSize  PFree
   /dev/sdb1  new_vg lvm2 a-   17.14G 17.14G
@@ -143,13 +151,14 @@ pvs
 
 <details>
 
-<summary><h4>Customize Display</h4></summary>
+<summary><h3>Customize Display</h3></summary>
 
 - คำสั่ง `pvs` ทำให้ควบคุมการฟอร์แมตได้ดีมาก ๆ, และมีประโยชน์ในการทำ Scripting อีกด้วย โดยในการแก้ไข Output ของการใช้คำสั่ง `pvs` สามารถทำได้
 และสามารถเปลี่ยนฟิลด์ที่อยากให้แสดงให้มากกว่าปกติ โดยการใช้ Argument `-o`
 ```
 pvs -o pv_name,pv_size
 ```
+&emsp;_ผลลัพท์_
 ```
   PV         PSize
   /dev/sdb1  17.14G
@@ -157,11 +166,13 @@ pvs -o pv_name,pv_size
   /dev/sdd1  17.14G
 ```
 <hr />
+<br />
 
 - สามารถที่จะเพิ่มฟิลด์ไปยัง Output ด้วยสัญลักษณ์บวก (+) โดยเอามาใช้ร่วมกับ Argument `-o`
 ```
 pvs -o +pv_uuid
 ```
+&emsp;_ผลลัพท์_
 ```
   PV         VG     Fmt  Attr PSize  PFree  PV UUID
   /dev/sdb1  new_vg lvm2 a-   17.14G 17.14G onFF2w-1fLC-ughJ-D9eB-M7iv-6XqA-dqGeXY
@@ -169,11 +180,13 @@ pvs -o +pv_uuid
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G yvfvZK-Cf31-j75k-dECm-0RZ3-0dGW-UqkCS
 ```
 <hr />
+<br />
 
 - การเพิ่ม Argument `-v` ไปยังคำสั่งจะเพิ่มฟิลด์เพิ่มเติม เช่นคำสั่ง `pvs -v` จะแสดงฟิลด์ `DevSize` และ `PV UUID` เพิ่มเติมไปยังฟิลด์ตามปกติ
 ```
 pvs -v
 ```
+&emsp;_ผลลัพท์_
 ```
     Scanning for physical volume names
   PV         VG     Fmt  Attr PSize  PFree  DevSize PV UUID
@@ -182,24 +195,28 @@ pvs -v
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G  17.14G yvfvZK-Cf31-j75k-dECm-0RZ3-0dGW-tUqkCS
 ```
 <hr />
+<br />
 
 - Argument `--noheadings` จะไม่แสดง Headings line สามารถนำไปใช้ในการเขียน Scripts
 ตัวอย่างก็เช่นการใช้ Argument `--noheadings` ในการร่วมกับ Argument `pv_name` โดยมันจะแสดงลิสต์ทั้งหมดของ Physical Volumes
 ```
 pvs --noheadings -o pv_name
 ```
+&emsp;_ผลลัพท์_
 ```
   /dev/sdb1
   /dev/sdc1
   /dev/sdd1
 ```
 <hr />
+<br />
 
 - Argument `--separator (separator)` ใช้ตัว separator ในการแยกแต่ละฟิลด์
 ตัวอย่างการแยก Output ฟิลด์ของคำสั่ง `pvs` ด้วยสัญลักษณ์เท่ากับ (=)
 ```
 pvs --separator =
 ```
+&emsp;_ผลลัพท์_
 ```
   PV=VG=Fmt=Attr=PSize=PFree
   /dev/sdb1=new_vg=lvm2=a-=17.14G=17.14G
@@ -207,11 +224,13 @@ pvs --separator =
   /dev/sdd1=new_vg=lvm2=a-=17.14G=17.14G
 ```
 <hr />
+<br />
 
 - เพื่อให้แต่ละฟิลด์นั้นเว้นระยะห่าง เมื่อใช้ Argument `separator` ต้องใช้ร่วมกับ Argument `--aligned`
 ```
 pvs --separator = --aligned
 ```
+&emsp;_ผลลัพท์_
 ```
   PV        =VG    =Fmt =Attr=PSize =PFree
   /dev/sdb1 =new_vg=lvm2=a-  =17.14G=17.14G
@@ -219,6 +238,7 @@ pvs --separator = --aligned
   /dev/sdd1 =new_vg=lvm2=a-  =17.14G=17.14G
 ```
 <hr />
+<br />
 
 ### ตารางฟิลด์ที่แสดงในคำสั่ง pvs
 | Argument | Header | Description |
@@ -239,14 +259,16 @@ pvs --separator = --aligned
 | `pv_uuid` | PV UUID | The UUID of the physical volume |
 
 Information: [Customized Reporting for LVM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
-<hr />
 
 </details>
+
+<hr />
 
 - สามารถใช้คำสั่ง `pvs -a` เพื่อตรวจสอบ Devices ที่ไม่ได้ถูกกำหนดเป็น LVM Physical Volumes ด้วย LVM
 ```
 pvs -a
 ```
+&emsp;_ผลลัพท์_
 ```
   PV                             VG     Fmt  Attr PSize  PFree
   /dev/VolGroup00/LogVol01                   --       0      0
@@ -270,14 +292,17 @@ pvs -a
 
 </details>
 
+<hr />
+
 <details>
 
 <summary><h3>2.2 คำสั่ง pvdisplay</h3></summary>
 
-คำสั่ง `pvdisplay` ให้ Output ออกมารายละเอียดแต่ละ Physical Volume เป็นหลายบรรทัด มันจะแสดงคุณสมบัติของ Physical (Size, Extents, Volume Group, และอื่น ๆ) ในรูปแบบที่ตั้งค่าไว้
+&emsp;คำสั่ง `pvdisplay` ให้ Output ออกมารายละเอียดแต่ละ Physical Volume เป็นหลายบรรทัด มันจะแสดงคุณสมบัติของ Physical (Size, Extents, Volume Group, และอื่น ๆ) ในรูปแบบที่ตั้งค่าไว้
 ```
 pvdisplay
 ```
+&emsp;_ผลลัพท์_
 ```
   --- Physical volume ---
   PV Name               /dev/sdc1
@@ -293,14 +318,17 @@ pvdisplay
 
 </details>
 
+<hr />
+
 <details>
 
 <summary><h3>2.3 คำสั่ง pvscan</h3></summary>
 
-คำสั่ง `pvscan` จะสแกน Physical Volumes ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
+&emsp;คำสั่ง `pvscan` จะสแกน Physical Volumes ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
 ```
 pvscan
 ```
+&emsp;_ผลลัพท์_
 ```
  PV /dev/sdb2   VG vg0   lvm2 [964.00 MB / 0   free]
  PV /dev/sdc1   VG vg0   lvm2 [964.00 MB / 428.00 MB free]
@@ -308,37 +336,46 @@ pvscan
  Total: 3 [2.83 GB] / in use: 2 [1.88 GB] / in no VG: 1 [964.84 MB]
 ```
 
-สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน Physical Volumes ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
+> &emsp;สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน Physical Volumes ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
 
 </details>
 
-## 3. Preventing Allocation on a Physical Volume
-สามารถระงับการจัดสรรพื้นที่ว่างเพิ่มของ Physical Volumes หนึ่งหรือมากกว่านั้น ด้วยคำสั่ง `pvchange` อาจจำเป็นถ้าตัว Disk เกิดข้อผิดพลาดขึ้น หรือถ้าต้องการจะลบตัว Physical Volume
+<hr />
 
-ตามตัวอย่างเป็นการระงับไม่ให้จัดสรรตัว `/dev/sdk1`
+## 3. Preventing Allocation on a Physical Volume
+&emsp;สามารถระงับการจัดสรรพื้นที่ว่างเพิ่มของ Physical Volumes หนึ่งหรือมากกว่านั้น ด้วยคำสั่ง `pvchange` อาจจำเป็นถ้าตัว Disk เกิดข้อผิดพลาดขึ้น หรือถ้าต้องการจะลบตัว Physical Volume
+
+&emsp;ตามตัวอย่างเป็นการระงับไม่ให้จัดสรรตัว `/dev/sdk1`
 ```
 pvchange -x n /dev/sdk1
 ```
-และก็สามารถใช้ Arguments `-xy` ในคำสั่งของ `pvchange` เพื่ออนุณาตให้จัดสรรได้อีกครั้ง หลังจากที่ทำการระงับไป
+&emsp;และก็สามารถใช้ Arguments `-xy` ในคำสั่งของ `pvchange` เพื่ออนุณาตให้จัดสรรได้อีกครั้ง หลังจากที่ทำการระงับไป
+
+<hr />
 
 ## 4. Resizing a Physical Volume
-ถ้าต้องการเปลี่ยนขนาดของโครงสร้างของ Block Device ไม่ว่าเหตุผลใดก็ตาม ก็ใช้คำสั่ง `pvresize` เพื่ออัพเดท LVM ด้วยขนาดที่เปลี่ยน สามารถดำเนินคำสั่งนี้ในขณะที่ LVM ใช้ Physical Volume อยู่
+&emsp;ถ้าต้องการเปลี่ยนขนาดของโครงสร้างของ Block Device ไม่ว่าเหตุผลใดก็ตาม ก็ใช้คำสั่ง `pvresize` เพื่ออัพเดท LVM ด้วยขนาดที่เปลี่ยน สามารถดำเนินคำสั่งนี้ในขณะที่ LVM ใช้ Physical Volume อยู่
+
+<hr />
 
 ## 5. Removing Physical Volumes
-ถ้า Device ไม่จำเป็นในการใช้ด้วย LVM อีกแล้ว สามารถที่จะลบ LVM Label ด้วยคำสั่ง `pvremove` การทำคำสั่ง `pvremove` เป็นลบ LVM Metadata ของ Physical Volume ที่ว่าง
+&emsp;ถ้า Device ไม่จำเป็นในการใช้ด้วย LVM อีกแล้ว สามารถที่จะลบ LVM Label ด้วยคำสั่ง `pvremove` การทำคำสั่ง `pvremove` เป็นลบ LVM Metadata ของ Physical Volume ที่ว่าง
 
 ```
 pvremove /dev/ram15
 ```
+&emsp;_ผลลัพท์_
 ```
   Labels on physical volume "/dev/ram15" successfully wiped
 ```
 
-## Summary
+<hr />
 
-โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
+# Summary
 
-ก่อนจะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน
+&emsp;โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
+
+&emsp;ก่อนจะเข้าไปจัดการ **Physical Volumn** ได้นั้น เราต้องลง **Logical Volumn Manager (LVM)** ใน Linux ก่อน
 เพื่อให้ใช้งานคำสั่งได้
 แต่ถ้าใช้ Ubuntu Server จะสามารถใช้งาน **LVM** ได้เลย โดยที่เราไม่ต้องลง Package ของ **LVM**
 
@@ -351,6 +388,8 @@ OR
 ```
 sudo apt install lvm2
 ```
+
+<hr />
 
 # References
 
