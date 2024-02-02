@@ -33,6 +33,17 @@ Raw Media Device
 ### การแสดง partition ปัจจุบัน
     sudo parted /dev/sda
     print
+![partedshow.png](..%2Fassets%2Fimg%2Fmembers%2Fpartedshow.png)
+### การสร้าง partition
+    mkpart primary ext4 1GB 5GB 
+    #สร้างpartition primary ext4 เริ่มต้น1gb-5gb
+### การลบ partition
+    rm 1
+    #1 คือเลขของpartition ใส่เลขของpartiotionตามที่ต้องการจะลบ
+### การปรับขนาดของ partition
+    resizepart 1 10gb
+    #1 คือเลขของpartition 10gb คือขนาดที่ต้องการ
+    
 ### References:
     https://en.wikipedia.org/wiki/Raw_device
     https://saixiii.com/fdisk-linux-command/
@@ -40,3 +51,4 @@ Raw Media Device
     https://oarkm.oas.psu.ac.th/blog/24
     https://ciksiti.com/th/chapters/12268-working-with-linux-mkfs-command
     https://www.howtogeek.com/443342/how-to-use-the-mkfs-command-on-linux/
+    https://gcore.com/learning/manage-disk-partitions-linux-parted-command/
