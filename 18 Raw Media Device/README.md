@@ -11,10 +11,12 @@ Raw Media Device
 
 
 # Command ที่เกี่ยวข้องกับ Raw Media Device
+## /dev/sda
+### /dev คือที่เก็บข้อมูลใน root folder ที่เก็บไฟล์ทั้งหมดของอุปกรณ์ ซึ่งระบบจะทำการสร้างไฟล์ทันทีที่ติดตั้ง /dev/sda คือ disk ของคอมพิวเตอรที่เรากำลังใช้อยู่ ตามปกติ /dev/sda จะเป็น disk ลำดับแรก
 ## Fdisk
 ### คำสั่ง fdisk เป็นคำสั่งที่ใช้ในการจัดการ partition ซึ่งสามารถสร้างหรือลบ partition รวมถึงแสดง partiton เพื่อเรียกดูรายละเอียดที่เกี่ยวข้องต่างๆได้ การจะใช้คำสั่ง fdisk ต้องใช้มีสิทธิ์เป็น root
 ### การสร้าง partition ใหม่
-    sudo fdisk /dev/sda #เข้าใช้การจัดการpartitionในdiskแรกของอุปกรณ์
+    sudo fdisk /dev/sda 
     n #สร้างpartitionใหม่
 ### การลบ partition
     sudo fdisk /dev/sda 
@@ -22,8 +24,14 @@ Raw Media Device
 ### การแสดง partition
     sudo fdisk /dev/sda 
     p #แสดงข้อมูลpartitionปัจจุบัน
-![fiskcommand.png](..%2Fassets%2Fimg%2Fmembers%2Ffdiskcommand.png)
+![newfdiskcommand.png](..%2Fassets%2Fimg%2Fmembers%2Fnewfdiskcommand.png)
+## Mkfs
+### mkfs เป็นคำสั่งในการช่วยสร้างระบบไฟล์บน linux การพิมพ์ mkfs และกด tab สองครั้งจะแสดงชนิด ของระบบไฟล์ที่สามารถสร้างได้
+
 ### References:
     https://en.wikipedia.org/wiki/Raw_device
     https://saixiii.com/fdisk-linux-command/
     https://www.interserver.net/tips/kb/commands-check-hard-disk-partitions-disk-space-linux/
+    https://oarkm.oas.psu.ac.th/blog/24
+    https://ciksiti.com/th/chapters/12268-working-with-linux-mkfs-command
+    https://www.howtogeek.com/443342/how-to-use-the-mkfs-command-on-linux/
