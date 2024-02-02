@@ -20,7 +20,7 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
 ## LVM Physical Volume Layout
 
 > [!Note]
-> ใน Linux kernel, จะให้แต่ละ Sectors นั้นมีขนาด 512 bytes
+> **ใน Linux kernel, จะให้แต่ละ Sectors นั้นมีขนาด 512 bytes**
 
 - LVM Label อยู่ใน Sector ที่สอง
 - Metadata
@@ -43,11 +43,11 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
   เดียวกันได้ และอาจส่งผลให้เป็นการลดประสิทธิภาพมากกว่าเพิ่มประสิทธิภาพ
 
 > [!Tip]
-> &emsp;แม้จะไม่แนะนำให้ทำ แต่อาจมีสถานการณ์บางอย่างที่ทำให้จำเป็นต้องแบ่ง Disk ออกจาก LVM Physical Volume ตัวอย่างเช่น
+> **&emsp;แม้จะไม่แนะนำให้ทำ แต่อาจมีสถานการณ์บางอย่างที่ทำให้จำเป็นต้องแบ่ง Disk ออกจาก LVM Physical Volume ตัวอย่างเช่น
 > ในระบบที่มี Disk ไม่มากอาจจำเป็นต้องส่งข้อมูลไปมาระหว่าง Partitions เมื่อต้องการที่จะโยกย้ายระบบเดิมไปยัง LVM Volumes
 > เพิ่มเติมก็คือถ้ามี Disk ขนาดใหญ่มาก และต้องการจะมีมากกว่า 1 Volume Group ในการบริหารงั้นมันก็จำเป็นในการแบ่ง Disk (Partition)
 > ถ้าต้องการ Disk ที่มีมากกว่า 1 Partition และ Partitions ทั้งคู่ก็อยู่ใน Volume Group เดียวกัน ควรดูแลเฉพาะ
-> Partition ที่อยู่ใน Logical Volume เมื่อสร้าง Striped Volumes
+> Partition ที่อยู่ใน Logical Volume เมื่อสร้าง Striped Volumes**
 
 <hr />
 
@@ -67,7 +67,7 @@ dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 
 &emsp;ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
 
-&emsp;โดยคำสั่งที่ตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
+&emsp;โดยตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
 ```
 pvcreate /dev/sdd /dev/sde /dev/sdf
 ```
