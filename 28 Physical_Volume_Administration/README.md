@@ -33,11 +33,11 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
 &emsp;LVM สามารถทำให้สร้าง Physical Volume จาก Disk Partitions, Red Hat แนะนำให้สร้างแค่ Partition ตัวเดียวเพื่อให้คลุม Disk
 ได้ทั้งหมดไปเป็น Label ไปเป็น LVM Physical Volume ตามเหตุผลดังนี้
 
-- Administrative convenience<br>
+- **Administrative convenience**<br>
   มันง่ายกว่าในการติดตาม Hardware ในระบบ ถ้าแต่ละ Disk ปรากฏแค่ครั้งเดียว มันจะชัดเจนเมื่อ Disk นั้นผิดพลาด,
   เพิ่มเติมการมีหลาย Physical Volume อยู่ใน Disk เดียวกัน อาจทำให้ Kernel เตือนเกี่ยวกับประเภท Partition
   ที่ไม่รู้จักตอนที่บูท
-- Striping performance<br>
+- **Striping performance**<br>
   LVM ไม่สามารถบอกได้ว่าสอง Physical Volume อยู่บน Physical Disk เดียวกันหรือป่าว ถ้ามีสอง Physical Volume อยู่ใน
   Physical Disk เดียวกัน การสร้าง Logical Volume ในการแบ่งพวกมันออกจากกัน มันอาจแบ่งให้อยู่คนละ Partition ที่อยู่ Disk
   เดียวกันได้ และอาจส่งผลให้เป็นการลดประสิทธิภาพมากกว่าเพิ่มประสิทธิภาพ
@@ -65,14 +65,12 @@ dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 
 <summary><h3>1.1 Initializing Physical Volumes</h3></summary>
 
-&emsp;ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
-
-&emsp;โดยตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
+- ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
+- โดยตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
 ```
 pvcreate /dev/sdd /dev/sde /dev/sdf
 ```
-
-&emsp;ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้งหมดของ Disk รันคำสั่ง
+- ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้งหมดของ Disk รันคำสั่ง
 <br>`pvcreate` ของ Partition ตามดังตัวอย่างในการเริ่ม Partition `/dev/hdb1` โดยเป็น LVM Physical Volume สำหรับใช้กับส่วนของ LVM Logical Volume
 ```
 pvcreate /dev/hdb1
@@ -135,7 +133,7 @@ lvmdiskscan
 
 <details>
 
-<summary><h3>2.1 คำสั่ง pvs</h3></summary>
+<summary><h3>2.1 คำสั่ง `pvs`</h3></summary>
 
 - คำสั่ง `pvs` ให้ข้อมูลการตั้งค่าของ Physical Volume แสดงผลหนึ่งบรรทัดต่อ Physical Volume
 ```
@@ -165,6 +163,27 @@ pvs -o pv_name,pv_size
   /dev/sdc1  17.14G
   /dev/sdd1  17.14G
 ```
+
+### ตารางฟิลด์ที่แสดงในคำสั่ง pvs
+| Argument | Header | Description |
+| -------- | ------ | :----------- |
+| `dev_size` | DevSize | The size of the underlying device on which the physical volume was created |
+| `pe_start` | 1st PE | Offset to the start of the first physical extent in the underlying device |
+| `pv_attr` | Attr | Status of the physical volume: (a)llocatable or e(x)ported. |
+| `pv_fmt` | Fmt | The metadata format of the physical volume (lvm2 or lvm1) |
+| `pv_free` | PFree | The free space remaining on the physical volume |
+| `pv_name` | PV | The physical volume name |
+| `pv_pe_alloc_count` | Alloc | Number of used physical extents |
+| `pv_pe_count` | PE | Number of physical extents |
+| `pvseg_size` | SSize | The segment size of the physical volume |
+| `pvseg_start` | Start | The starting physical extent of the physical volume segment |
+| `pv_size` | PSize | The size of the physical volume |
+| `pv_tags` | PV Tags | LVM tags attached to the physical volume |
+| `pv_used` | Used | The amount of space currently used on the physical volume |
+| `pv_uuid` | PV UUID | The UUID of the physical volume |
+
+Information: [Customized Reporting for LVM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
+
 <hr />
 <br />
 
@@ -237,28 +256,6 @@ pvs --separator = --aligned
   /dev/sdc1 =new_vg=lvm2=a-  =17.14G=17.09G
   /dev/sdd1 =new_vg=lvm2=a-  =17.14G=17.14G
 ```
-<hr />
-<br />
-
-### ตารางฟิลด์ที่แสดงในคำสั่ง pvs
-| Argument | Header | Description |
-| -------- | ------ | :----------- |
-| `dev_size` | DevSize | The size of the underlying device on which the physical volume was created |
-| `pe_start` | 1st PE | Offset to the start of the first physical extent in the underlying device |
-| `pv_attr` | Attr | Status of the physical volume: (a)llocatable or e(x)ported. |
-| `pv_fmt` | Fmt | The metadata format of the physical volume (lvm2 or lvm1) |
-| `pv_free` | PFree | The free space remaining on the physical volume |
-| `pv_name` | PV | The physical volume name |
-| `pv_pe_alloc_count` | Alloc | Number of used physical extents |
-| `pv_pe_count` | PE | Number of physical extents |
-| `pvseg_size` | SSize | The segment size of the physical volume |
-| `pvseg_start` | Start | The starting physical extent of the physical volume segment |
-| `pv_size` | PSize | The size of the physical volume |
-| `pv_tags` | PV Tags | LVM tags attached to the physical volume |
-| `pv_used` | Used | The amount of space currently used on the physical volume |
-| `pv_uuid` | PV UUID | The UUID of the physical volume |
-
-Information: [Customized Reporting for LVM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/custom_report#report_format_control)
 
 </details>
 
@@ -296,7 +293,7 @@ pvs -a
 
 <details>
 
-<summary><h3>2.2 คำสั่ง pvdisplay</h3></summary>
+<summary><h3>2.2 คำสั่ง `pvdisplay`</h3></summary>
 
 &emsp;คำสั่ง `pvdisplay` ให้ Output ออกมารายละเอียดแต่ละ Physical Volume เป็นหลายบรรทัด มันจะแสดงคุณสมบัติของ Physical (Size, Extents, Volume Group, และอื่น ๆ) ในรูปแบบที่ตั้งค่าไว้
 ```
@@ -322,7 +319,7 @@ pvdisplay
 
 <details>
 
-<summary><h3>2.3 คำสั่ง pvscan</h3></summary>
+<summary><h3>2.3 คำสั่ง `pvscan`</h3></summary>
 
 &emsp;คำสั่ง `pvscan` จะสแกน Physical Volumes ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
 ```
@@ -336,7 +333,7 @@ pvscan
  Total: 3 [2.83 GB] / in use: 2 [1.88 GB] / in no VG: 1 [964.84 MB]
 ```
 
-> &emsp;สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน Physical Volumes ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
+&emsp;สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน Physical Volumes ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
 
 </details>
 
