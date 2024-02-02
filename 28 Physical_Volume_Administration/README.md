@@ -84,7 +84,7 @@ pvcreate /dev/hdb1
   
 <summary><h3>1.2 Scanning for Block Devices</h3></summary>
 
-&emsp;สามารถสแกนหา Block Devices ที่จะได้ใช้เป็น **Physical Volumes** โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
+&emsp;สามารถสแกนหา Block Devices ที่จะถูกใช้เป็น **Physical Volumes** โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
 
 ```
 lvmdiskscan
