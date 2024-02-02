@@ -55,8 +55,9 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
 &emsp;มีหน้าที่ในการจัดการ **Physical Volumes** ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server ใช้ในการตรวจสอบ เพิ่ม ลบ ดูแล
 
 ## 1. Creating Physical Volumes
-&emsp;โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น **Physical Volumes** หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น **Physical Volumes** โดยวิธีทำก็คือ
-ใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออื่น ๆ โดยต้องตั้งค่า Partition id เป็น `0x8e` ถ้าต้องการจะให้ทั้ง Disk เป็น Physical Volume ตัว Disk ต้องไม่มี Partition Table สำหรับ DOS Disk Partition, สำหรับทั้ง Disk ต้องมีแค่ Partition Table ที่ต้องถูกล้างข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้ว โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
+
+- ถ้าต้องการใช้ Disk ทั้งหมดในการใช้เป็น Physical Volume ตัว Disk จำเป็นต้องไม่มี Partition Table ในการใช้ DOS Disk Partitions ตัว Partition ID ต้องเซ็ตเป็น `0x8e` โดยใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออะไรก็ได้ที่ใช้ได้เหมือนกัน
+- ในการใช้ Disk Devices ทั้งหมด ต้องมีแค่ Partition Table ที่ถูกลบข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้วได้ โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
 ```
 dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 ```
