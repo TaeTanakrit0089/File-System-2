@@ -52,10 +52,10 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
 <hr />
 
 # Physical Volume Administration
-&emsp;มีหน้าที่ในการจัดการ *Physical Volumes* ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server ใช้ในการตรวจสอบ เพิ่ม ลบ ดูแล
+&emsp;มีหน้าที่ในการจัดการ **Physical Volumes** ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server ใช้ในการตรวจสอบ เพิ่ม ลบ ดูแล
 
-## 1. Creating *Physical Volumes*
-&emsp;โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น *Physical Volumes* หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น *Physical Volumes* โดยวิธีทำก็คือ
+## 1. Creating Physical Volumes
+&emsp;โดยก่อนอื่นต้องทำการตั้งค่า Partition Type ก่อน เพื่อให้สามารถระบุว่า Partition ว่าเป็น **Physical Volumes** หรือจริง ๆ ก็คือให้ LVM สามารถระบุได้ว่าเป็น **Physical Volumes** โดยวิธีทำก็คือ
 ใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออื่น ๆ โดยต้องตั้งค่า Partition id เป็น `0x8e` ถ้าต้องการจะให้ทั้ง Disk เป็น Physical Volume ตัว Disk ต้องไม่มี Partition Table สำหรับ DOS Disk Partition, สำหรับทั้ง Disk ต้องมีแค่ Partition Table ที่ต้องถูกล้างข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้ว โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
 ```
 dd if=/dev/zero of=PhysicalVolume bs=512 count=1
@@ -63,7 +63,7 @@ dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 
 <details>
 
-<summary><h3>1.1 Initializing *Physical Volumes*</h3></summary>
+<summary><h3>1.1 Initializing Physical Volumes</h3></summary>
 
 - ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
 - โดยตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
@@ -83,7 +83,7 @@ pvcreate /dev/hdb1
   
 <summary><h3>1.2 Scanning for Block Devices</h3></summary>
 
-&emsp;สามารถสแกนหา Block Devices ที่จะได้ใช้เป็น *Physical Volumes* โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
+&emsp;สามารถสแกนหา Block Devices ที่จะได้ใช้เป็น **Physical Volumes** โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
 
 ```
 lvmdiskscan
@@ -217,7 +217,7 @@ pvs -v
 <br />
 
 - Argument `--noheadings` จะไม่แสดง Headings line สามารถนำไปใช้ในการเขียน Scripts
-ตัวอย่างก็เช่นการใช้ Argument `--noheadings` ในการร่วมกับ Argument `pv_name` โดยมันจะแสดงลิสต์ทั้งหมดของ *Physical Volumes*
+ตัวอย่างก็เช่นการใช้ Argument `--noheadings` ในการร่วมกับ Argument `pv_name` โดยมันจะแสดงลิสต์ทั้งหมดของ **Physical Volumes**
 ```
 pvs --noheadings -o pv_name
 ```
@@ -321,7 +321,7 @@ pvdisplay
 
 <summary><h3>2.3 คำสั่ง `pvscan`</h3></summary>
 
-&emsp;คำสั่ง `pvscan` จะสแกน *Physical Volumes* ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
+&emsp;คำสั่ง `pvscan` จะสแกน **Physical Volumes** ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
 ```
 pvscan
 ```
@@ -333,14 +333,14 @@ pvscan
  Total: 3 [2.83 GB] / in use: 2 [1.88 GB] / in no VG: 1 [964.84 MB]
 ```
 
-&emsp;สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน *Physical Volumes* ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
+&emsp;สามารถกำหนด Filter ในไฟล์ `lvm.conf` ที่จะทำให้คำสั่งนี้หลีกเลี่ยงการสแกน **Physical Volumes** ที่กำหนดได้ สำหรับข้อมูลในการใช้ Filter ในการควบคุมว่าจะให้ Devices ไหนถูกสแกน สามารถดูได้ใน [Controlling LVM Device Scans with Filters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_filters)
 
 </details>
 
 <hr />
 
 ## 3. Preventing Allocation on a Physical Volume
-&emsp;สามารถระงับการจัดสรรพื้นที่ว่างเพิ่มของ *Physical Volumes* หนึ่งหรือมากกว่านั้น ด้วยคำสั่ง `pvchange` อาจจำเป็นถ้าตัว Disk เกิดข้อผิดพลาดขึ้น หรือถ้าต้องการจะลบตัว Physical Volume
+&emsp;สามารถระงับการจัดสรรพื้นที่ว่างเพิ่มของ **Physical Volumes** หนึ่งหรือมากกว่านั้น ด้วยคำสั่ง `pvchange` อาจจำเป็นถ้าตัว Disk เกิดข้อผิดพลาดขึ้น หรือถ้าต้องการจะลบตัว Physical Volume
 
 &emsp;ตามตัวอย่างเป็นการระงับไม่ให้จัดสรรตัว `/dev/sdk1`
 ```
