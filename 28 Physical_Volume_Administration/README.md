@@ -71,7 +71,7 @@ dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 ```
 pvcreate /dev/sdd /dev/sde /dev/sdf
 ```
-- ในการที่ต้องการสร้างเป็น Partitions มากกว่าเป็นทั้งหมดของ Disk รันคำสั่ง
+- ในการที่ต้องการสร้างเป็น Partitions มากกว่าใช้ Disk ทั้งหมด โดยรันคำสั่ง
 <br>`pvcreate` ของ Partition ตามดังตัวอย่างในการเริ่ม Partition `/dev/hdb1` โดยเป็น LVM Physical Volume สำหรับใช้กับส่วนของ LVM Logical Volume
 ```
 pvcreate /dev/hdb1
