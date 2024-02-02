@@ -27,7 +27,7 @@ Raw Media Device
 ![newfdiskcommand.png](..%2Fassets%2Fimg%2Fmembers%2Fnewfdiskcommand.png)
 ## Mkfs
 ### mkfs เป็นคำสั่งในการช่วยสร้างระบบไฟล์บน linux การพิมพ์ mkfs และกด tab สองครั้งจะแสดงชนิด ของระบบไฟล์ที่สามารถสร้างได้
-
+![mkfstype.png](..%2Fassets%2Fimg%2Fmembers%2Fmkfstype.png)
 ### References:
     https://en.wikipedia.org/wiki/Raw_device
     https://saixiii.com/fdisk-linux-command/
