@@ -22,7 +22,7 @@ File System Type
 หลักการทำงาน
 ===
 ---
-![The Picture](/assets/img/members/File_System_Type_Example.jpg)
+![The Picture](/assets/img/File_System_Type_Example.jpg)
 
 File System ต้องเรียกใช้ API ในการเข้าถึงฟังก์ชั่น เพื่อโต้ตอบกับส่วนต่างๆ เช่น File และ Directory
 

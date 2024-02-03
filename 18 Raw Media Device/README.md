@@ -7,7 +7,7 @@ Raw Media Device
 # การทำงานของ Raw Media Device 
 ### Raw Media Device จะทำให้สามารถเข้าถึง Storage Device เช่น disk,partition ได้โดยตรงโดยไม่ผ่านระบบไฟล์ หรือ cache และ buffer ของ Operation System(OS) ทำให้ทำงานได้รวดเร็ว โดย Raw Media Device อาจสื่อถึง Disk หรือ Partition ที่ไม่มี format ของไฟล์ใดๆเลย
 
-![Raw_Media_Device_1.jpg](..%2Fassets%2Fimg%2Fmembers%2FRaw_Media_Device_1.jpg)
+![Raw_Media_Device_1.jpg](../assets/img/Raw_Media_Device_1.jpg)
 
 
 # Command ที่เกี่ยวข้องกับ Raw Media Device
@@ -24,7 +24,7 @@ Raw Media Device
 ### การแสดง partition
     sudo fdisk /dev/sda 
     p #แสดงข้อมูลpartitionปัจจุบัน
-![newfdiskcommand.png](..%2Fassets%2Fimg%2Fmembers%2Fnewfdiskcommand.png)
+![newfdiskcommand.png](../assets/img/newfdiskcommand.png)
 ### คำสั่งอื่นๆ
     m แสดงเมนูคำสั่ง
     t เปลื่ยนประเภทpartition
@@ -33,16 +33,16 @@ Raw Media Device
     w เขียนตารางลงบนไดรฟ์แล้วออก
 ## Mkfs
 ### mkfs เป็นคำสั่งในการช่วยสร้างระบบไฟล์บน linux การพิมพ์ mkfs และกด tab สองครั้งจะแสดงชนิด ของระบบไฟล์ที่สามารถสร้างได้ การสร้างระบบไฟล์จะเป็นการทำลายข้อมูลใน partition นั้นๆ
-![mkfstype.png](..%2Fassets%2Fimg%2Fmembers%2Fmkfstype.png)
+![mkfstype.png](../assets/img/mkfstype.png)
 ### การสร้างระบบไฟล์ xfs ใน partition
     sudo mkfs.xfs /dev/sda1
-![mkfscreate.png](..%2Fassets%2Fimg%2Fmembers%2Fmkfscreate.png)
+![mkfscreate.png](../assets/img/mkfscreate.png)
 ## Parted
 ### parted เป็นคำสั่งที่ใช้ในการจัดการ partition เหมือนกับ fdisk โดย parted จะสามารถใช้งานได้ง่ายกว่าแต่ช่วงหลังๆ parted เริ่มหายไปต้องทำการติดตั้งถึงจะใช้งานได้  
 ### การแสดง partition ปัจจุบัน
     sudo parted /dev/sda
     print
-![partedshow.png](..%2Fassets%2Fimg%2Fmembers%2Fpartedshow.png)
+![partedshow.png](../assets/img/partedshow.png)
 ### การสร้าง partition
     mkpart primary ext4 1GB 5GB 
     #สร้างpartition primary ext4 เริ่มต้น1gb-5gb
@@ -56,10 +56,10 @@ Raw Media Device
 ### เป็นคำสั่งในการจัดการ partition เหมือนกับ fdisk แต่มีฟังกฺชั่นเสริมที่เพิ่มเข้ามาโดยเฉพาะที่ไม่มีใน fdisk เช่น การทำงานแบบ non-interactively
 ### คำสั่งแสดงขนาดของ partition
     sfdisk -s /dev/sda1 **ถ้าไม่มีการใส่partitionจะแสดงขนาดของทุกๆdiskและtotalsize**
-![sfdisksize.png](..%2Fassets%2Fimg%2Fmembers%2Fsfdisksize.png)
+![sfdisksize.png](../assets/img/sfdisksize.png)
 ### การแสดง partition
     sfdisk -l /dev/sda
-![sfdiskshow.png](..%2Fassets%2Fimg%2Fmembers%2Fsfdiskshow.png)
+![sfdiskshow.png](../assets/img/sfdiskshow.png)
 ### การสร้าง partition
     sfdisk /dev/sda
 ### คำสั่งอื่นๆ
