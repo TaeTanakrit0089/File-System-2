@@ -22,8 +22,9 @@ File System Type
 หลักการทำงาน
 ===
 ---
-![The Picture](https://static.javatpoint.com/linux/images/linux-file-system.png)
-รูปจาก : https://www.javatpoint.com/linux-file-system 
+![The Picture](/assets/img/linux-file-system.png)
+
+    รูปจาก : https://www.javatpoint.com/linux-file-system 
 
 File System ต้องเรียกใช้ API ในการเข้าถึงฟังก์ชั่น เพื่อโต้ตอบกับส่วนต่างๆ เช่น File และ Directory
 
