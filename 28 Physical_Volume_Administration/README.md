@@ -371,7 +371,7 @@ pvremove /dev/ram15
 
 <hr />
 
-# Summary
+# Practice
 
 &emsp;โดย **Physical Volumes** ก็เป็นอีกหนึ่ง Component ที่สำคัญในการจัดการ Disk และ
 
