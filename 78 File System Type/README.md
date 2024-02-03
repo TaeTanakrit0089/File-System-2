@@ -22,7 +22,7 @@ File System Type
 หลักการทำงาน
 ===
 ---
-![The Picture](/assets/img/linux-file-system.png)
+![The Picture](/assets/img/78%20File%20System%20Type/linux-file-system.png)
 
     รูปจาก : https://www.javatpoint.com/linux-file-system 
 
