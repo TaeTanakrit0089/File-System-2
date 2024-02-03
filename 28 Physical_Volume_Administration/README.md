@@ -148,6 +148,8 @@ pvs
   /dev/sdd1  new_vg lvm2 a-   17.14G 17.14G
 ```
 
+<hr />
+
 <details>
 
 <summary><h3>Customize Display</h3></summary>
