@@ -2,7 +2,7 @@ File System Type
 ===
 ---
 
-## บทบาทหน้าที่หลักคือการจัดการข้อมูลในส่วนของการจัดเก็บข้อมูล เช่น file name, file size, creation date และอื่นๆ
+## บทบาทหน้าที่หลักคือการจัดระเบียบข้อมูลและจัดการข้อมูลบนอุปกรณ์จัดเก็บข้อมูล เช่น Hard drives, solid-state drives (SSDs)
 
 ### ประเภทของระบบไฟล์ที่ใช้บนระบบ Linux ได้แก่
 
@@ -22,7 +22,8 @@ File System Type
 หลักการทำงาน
 ===
 ---
-![The Picture](/assets/img/members/File_System_Type_Example.jpg)
+![The Picture](https://static.javatpoint.com/linux/images/linux-file-system.png)
+รูปจาก : https://www.javatpoint.com/linux-file-system 
 
 File System ต้องเรียกใช้ API ในการเข้าถึงฟังก์ชั่น เพื่อโต้ตอบกับส่วนต่างๆ เช่น File และ Directory
 
@@ -31,16 +32,22 @@ File System ต้องเรียกใช้ API ในการเข้า
 
 - Virtual file system ให้บริการชุดคำสั่งสำหรับ kernel เพื่อที่ให้ผู้ใช้งานสามารถเข้าถึง ประเภทของ File system ทั้งหมดได้
   Virtual file system
-  จะเรียกเฉพาะไดรฟ์เวอร์ที่จำเป็นในการเชื่อมต่อกับ ระบบไฟล์(File System)ประเภทนั้นๆเพื่อทำการเชื่อมต่อกับระบบไฟล์ประเภท(
-  Type)ต่างๆได้
+  จะเรียกเฉพาะไดรฟ์เวอร์ที่จำเป็นในการเชื่อมต่อกับ ระบบไฟล์(File System)ประเภทนั้นๆเพื่อทำการเชื่อมต่อกับระบบไฟล์ประเภท(Type)ต่างๆได้
 
 ---
+
+## Commands for File System
+
+
+
+---
+
 
 ### Reference:
 
     https://www.networkworld.com/article/972445/how-to-determine-your-linux-system-s-filesystem-types.html
     https://www.javatpoint.com/linux-file-system
-
-
+    https://medium.com/@extio/a-comprehensive-guide-to-linux-file-system-types-fcb13cd7d3f3
+    https://www.geeksforgeeks.org/linux-file-system/
 
 
