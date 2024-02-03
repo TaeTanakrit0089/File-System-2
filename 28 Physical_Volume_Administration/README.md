@@ -57,6 +57,10 @@ Area ในทุก ๆ Physical Volume ข้างใน Volume Group, LVM Me
 ## 1. Creating Physical Volumes
 
 - ถ้าต้องการใช้ Disk ทั้งหมดในการใช้เป็น Physical Volume ตัว Disk จำเป็นต้องไม่มี Partition Table ในการใช้ DOS Disk Partitions ตัว Partition ID ต้องเซ็ตเป็น `0x8e` โดยใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออะไรก็ได้ที่ใช้ได้เหมือนกัน
+```
+fdisk `Select Devices in /dev`
+```
+- และเลือกคำสั่ง `a` เพื่อทำการสร้าง Partition เมื่อสร้างเสร็จแล้วให้กำหนด Type Partition โดยคำสั่ง `t` เป็น `0x8e` โดย Partition นั้นจะถูกเปลี่ยนเป็น `Linux LVM`
 - ในการใช้ Disk Devices ทั้งหมด ต้องมีแค่ Partition Table ที่ถูกลบข้อมูล โดยจะส่งผลให้เป็นการทำลายข้อมูลทั้งหมดใน Disk นั้น แต่ก็จะสามารถใช้ลบ Partition Table ที่มีอยู่แล้วได้ โดยการใส่ "ศูนย์" ไปยัง Sector แรกด้วยคำสั่ง
 ```
 dd if=/dev/zero of=PhysicalVolume bs=512 count=1
@@ -64,7 +68,7 @@ dd if=/dev/zero of=PhysicalVolume bs=512 count=1
 
 <details>
 
-<summary><h3>1.1 Initializing Physical Volumes</h3></summary>
+<summary>1.1 Initializing Physical Volumes</summary>
 
 - ใช้คำสั่ง `pvcreate` ในการเริ่มสร้าง Block Device ที่ใช้ในการเป็น Physical Volume การเริ่มต้นจะคล้ายคลึงกับการจัดรูปแบบระบบไฟล์
 - โดยตามคำสั่งที่ใช้ในการสร้างคือ `/dev/sdd`, `/dev/sde`, และ `/dev/sdf` เป็น LVM Physical Volumes ที่จะใช้ในภายหลัง โดยเป็นส่วนของ LVM Logical Volumes
@@ -78,11 +82,9 @@ pvcreate /dev/hdb1
 ```
 </details>
 
-<hr />
-
 <details>
   
-<summary><h3>1.2 Scanning for Block Devices</h3></summary>
+<summary>1.2 Scanning for Block Devices</summary>
 
 &emsp;สามารถสแกนหา Block Devices ที่จะถูกใช้เป็น **Physical Volumes** โดยใช้คำสั่ง `lvmdiskscan` ตามดังนี้ 
 
@@ -127,14 +129,12 @@ lvmdiskscan
 
 </details>
 
-<hr />
-
 ## 2. Displaying Physical Volumes
 &emsp;มี 3 คำสั่งที่สามารถใช้ในการแสดง Properties ของ LVM Physical Volumes:<br>`pvs`, `pvdisplay`, และ `pvscan`
 
 <details>
 
-<summary><h3>2.1 คำสั่ง `pvs`</h3></summary>
+<summary>2.1 คำสั่ง `pvs`</summary>
 
 - คำสั่ง `pvs` ให้ข้อมูลการตั้งค่าของ Physical Volume แสดงผลหนึ่งบรรทัดต่อ Physical Volume
 ```
@@ -152,7 +152,7 @@ pvs
 
 <details>
 
-<summary><h3>Customize Display</h3></summary>
+<summary>Customize Display</summary>
 
 - คำสั่ง `pvs` ทำให้ควบคุมการฟอร์แมตได้ดีมาก ๆ, และมีประโยชน์ในการทำ Scripting อีกด้วย โดยในการแก้ไข Output ของการใช้คำสั่ง `pvs` สามารถทำได้
 และสามารถเปลี่ยนฟิลด์ที่อยากให้แสดงให้มากกว่าปกติ โดยการใช้ Argument `-o`
@@ -292,11 +292,9 @@ pvs -a
 
 </details>
 
-<hr />
-
 <details>
 
-<summary><h3>2.2 คำสั่ง `pvdisplay`</h3></summary>
+<summary>2.2 คำสั่ง `pvdisplay`</summary>
 
 &emsp;คำสั่ง `pvdisplay` ให้ Output ออกมารายละเอียดแต่ละ Physical Volume เป็นหลายบรรทัด มันจะแสดงคุณสมบัติของ Physical (Size, Extents, Volume Group, และอื่น ๆ) ในรูปแบบที่ตั้งค่าไว้
 ```
@@ -318,11 +316,9 @@ pvdisplay
 
 </details>
 
-<hr />
-
 <details>
 
-<summary><h3>2.3 คำสั่ง `pvscan`</h3></summary>
+<summary>2.3 คำสั่ง `pvscan`</summary>
 
 &emsp;คำสั่ง `pvscan` จะสแกน **Physical Volumes** ทุกตัวที่ได้มาจาก LVM Block Devices ในระบบ
 ```
