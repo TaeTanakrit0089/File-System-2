@@ -10,7 +10,7 @@ Raw Media Device
 
 ### Raw Media Device จะทำให้สามารถเข้าถึง Storage Device เช่น disk,partition ได้โดยตรงโดยไม่ผ่านระบบไฟล์ หรือ cache และ buffer ของ Operation System(OS) ทำให้ทำงานได้รวดเร็ว โดย Raw Media Device อาจสื่อถึง Disk หรือ Partition ที่ไม่มี format ของไฟล์ใดๆเลย
 
-![Raw_Media_Device_1.jpg](../assets/img/Raw_Media_Device_1.jpg)
+![Raw_Media_Device_1.jpg](../assets/img/18%20Raw%20Media/Raw_Media_Device_1.jpg)
 
 # Command ที่เกี่ยวข้องกับ Raw Media Device
 
@@ -37,7 +37,7 @@ Raw Media Device
     sudo fdisk /dev/sda 
     p #แสดงข้อมูลpartitionปัจจุบัน
 
-![newfdiskcommand.png](../assets/img/newfdiskcommand.png)
+![newfdiskcommand.png](../assets/img/18%20Raw%20Media/newfdiskcommand.png)
 
 ### คำสั่งอื่นๆ
 
@@ -51,13 +51,13 @@ Raw Media Device
 
 ### mkfs เป็นคำสั่งในการช่วยสร้างระบบไฟล์บน linux การพิมพ์ mkfs และกด tab สองครั้งจะแสดงชนิด ของระบบไฟล์ที่สามารถสร้างได้ การสร้างระบบไฟล์จะเป็นการทำลายข้อมูลใน partition นั้นๆ
 
-![mkfstype.png](../assets/img/mkfstype.png)
+![mkfstype.png](../assets/img/18%20Raw%20Media/mkfstype.png)
 
 ### การสร้างระบบไฟล์ xfs ใน partition
 
     sudo mkfs.xfs /dev/sda1
 
-![mkfscreate.png](../assets/img/mkfscreate.png)
+![mkfscreate.png](../assets/img/18%20Raw%20Media/mkfscreate.png)
 
 ## Parted
 
@@ -68,7 +68,7 @@ Raw Media Device
     sudo parted /dev/sda
     print
 
-![partedshow.png](../assets/img/partedshow.png)
+![partedshow.png](../assets/img/18%20Raw%20Media/partedshow.png)
 
 ### การสร้าง partition
 
@@ -93,13 +93,13 @@ Raw Media Device
 
     sfdisk -s /dev/sda1 **ถ้าไม่มีการใส่partitionจะแสดงขนาดของทุกๆdiskและtotalsize**
 
-![sfdisksize.png](../assets/img/sfdisksize.png)
+![sfdisksize.png](../assets/img/18%20Raw%20Media/sfdisksize.png)
 
 ### การแสดง partition
 
     sfdisk -l /dev/sda
 
-![sfdiskshow.png](../assets/img/sfdiskshow.png)
+![sfdiskshow.png](../assets/img/18%20Raw%20Media/sfdiskshow.png)
 
 ### การสร้าง partition
 
