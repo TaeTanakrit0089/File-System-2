@@ -124,8 +124,10 @@ lvcreate -l 50%PV -n data vgdata
 
 ![](https://www.prepressure.com/images/raid-level-0-striping.svg)
 
+https://www.prepressure.com/images/raid-level-0-striping.svg
 
 ![](https://www.tecmint.com/wp-content/uploads/2014/09/LVM-Striping.jpeg)
+
 https://www.tecmint.com/wp-content/uploads/2014/09/LVM-Striping.jpeg
 
 
