@@ -1,8 +1,8 @@
 # Logical Volume Administration
 
-การใช้ **Physical Storage** ตรงๆ นั้นอาจจะไม่ยืดหยุ่น และจัดการได้ยาก เช่น มี SSD 128GB 3 อัน ต้องการให้ User1 กับ User2
+การใช้ **Physical Device** ตรงๆ นั้นอาจจะไม่ยืดหยุ่น และจัดการได้ยาก เช่น มี SSD 128GB 3 อัน ต้องการให้ User1 กับ User2
 ใช้คนละครึ่งกัน ทำยังไง?<br><br> ด้วยปัญหานี้ เราจึงต้องสร้าง **Logical Volume** ขึ้นมา เพื่อให้เราสามารจัดการกับ
-**Physical Storage** ได้ง่ายขึ้น <br><br>
+**Physical Device** ได้ง่ายขึ้น <br><br>
 
 # Index
 
