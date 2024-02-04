@@ -69,7 +69,7 @@ Partition)
 ```
 fdisk -l
 ```
-ด้วยคำสั่งนี้จะได้ List Devices ออกมา
+ด้วยคำสั่งนี้จะได้ List Disk ออกมา ใช้เพื่อดูขนาดของแต่ละ Disk และดูว่ามี Disk อะไรบ้างได้
 ```
 fdisk `Select Devices in /dev`
 ```
