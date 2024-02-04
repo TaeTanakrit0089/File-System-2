@@ -66,7 +66,10 @@ Partition)
 
 - ถ้าต้องการใช้ Disk ทั้งหมดในการใช้เป็น Physical Volume ตัว Disk จำเป็นต้องไม่มี Partition Table ในการใช้ DOS Disk
   Partitions ตัว Partition ID ต้องเซ็ตเป็น `0x8e` โดยใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออะไรก็ได้ที่ใช้ได้เหมือนกัน
-
+```
+fdisk -l
+```
+ด้วยคำสั่งนี้จะได้ List Devices ออกมา
 ```
 fdisk `Select Devices in /dev`
 ```
