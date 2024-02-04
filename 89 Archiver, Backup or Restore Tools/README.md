@@ -47,7 +47,7 @@ Archive tar
 ชื่อไฟล์มักจะได้รับส่วนขยาย .tar
 
 ```shell
-tar optionsf archive-name.tar directory-and-file-names
+$ tar optionsf archive-name.tar directory-and-file-names
 ```
 
 เพื่อสร้างอาร์กีฟใช้ตัวเลือก c ร่วมกับตัวเลือก f โดย c จะสร้างอาร์กีฟบนไฟล์หรืออุปกรณ์ เมื่อใช้ร่วมกับตัวเลือก f
@@ -127,7 +127,7 @@ Archive
 ถูกเพิ่มเข้าไปในไดเรกทอรี mydir
 
 ```shell
-tar uvf myarch.tar mydir
+$ tar uvf myarch.tar mydir
 
 mydir/
 mydir/gifts
@@ -137,7 +137,7 @@ mydir/gifts
 จะแสดงรายการของไฟล์ทั้งหมดที่เก็บในอาร์กีฟ myarch.tar:
 
 ```shell
-tar tvf myarch.tar
+$ tar tvf myarch.tar
 
 drwxr-xr-x root/root 0  2000-10-24 21:38:18   mydir/
 drwxr-xr-x root/root 0  2000-10-24 21:38:51   mydir/reports/
@@ -164,19 +164,19 @@ Zip เป็นเครื่องมือในการบีบอัด�
 
 ในตัวอย่างนี้จะใช้ไดเรกทอรีที่มีไฟล์อยู่ข้างในดังนี้
 
-![ZIP-Directory01.png](../assets/img/89%20Archiver/ZIP-Directory01.png)
+![ZIP-Directory01.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory01.png)
 
 เราจะย้าย Current Working Directory ใน Terminal ให้ไปอยู่ที่ `ZIP Example`
 
-![ZIP-Directory02.png](../assets/img/89%20Archiver/ZIP-Directory02.png)
+![ZIP-Directory02.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory02.png)
 
 เราจะลองบีบอัดโดยใช้คำสั่ง
 
 ```shell
-zip output.zip *
+$ zip output.zip *
 ```
 
-![ZIP-Directory03.png](../assets/img/89%20Archiver/ZIP-Directory03.png)
+![ZIP-Directory03.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory03.png)
 
 จากคำสั่งข้างต้น
 
@@ -188,29 +188,93 @@ zip output.zip *
 แต่ว่าจากคำสั่งข้างต้นจะบีบอัดไฟล์ที่อยู่เฉพาะใน ZIP Example เมื่อเราแตกผลลัพธ์ของการบีบอัดออกมาแล้ว
 นี่คือไฟล์ที่อยู่ข้างใน
 
-![ZIP-Directory04.png](../assets/img/89%20Archiver/ZIP-Directory04.png)
+![ZIP-Directory04.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory04.png)
 
 จะเห็นได้เลยว่าในไดเร็กทอรี LinkedList นั้นไม่มีไฟล์หรือไดเร็กทอรี่อะไรอยู่เลยเพราะว่าคำสั่ง ZIP นั้่นจะไม่บีบีบไฟล์ใน
 Subdirectories ข้างใน ดังนั้นเพื่อแก่้ปัญหานี้เราเลยต้องใส่คำสั่ง `-r` เข้าไปเพื่อให้ทำการ recurse into directories
 
 ```shell
-zip -r output.zip *
+$ zip -r output.zip *
 ```
 
-![ZIP-Directory05.png](../assets/img/89%20Archiver/ZIP-Directory05.png)
+![ZIP-Directory05.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory05.png)
 
 จะเห็นได้ว่ามีการเพิ่มการบีบอัดไฟล์ทั้งหมดใน subdirectories ด้วย เมื่อเราแตกไฟล์ออกมาแล้ว
 ข้างในไฟล์ผลลัพธ์จะออกมามีหน้าตาดังนี้
 
-![ZIP-Directory06.png](../assets/img/89%20Archiver/ZIP-Directory06.png)
+![ZIP-Directory06.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory06.png)
 
 สำหรับการแตกไฟล์ก็สามารถแตกได้เลยโดยใช้คำสั่ง `unzip`
 
-![ZIP-Directory06.png](../assets/img/89%20Archiver/ZIP-Directory07.png)
+```shell
+$ unzip output.zip
+```
+
+![ZIP-Directory06.png](../assets/img/89%20Archiver/2-ZIP/ZIP-Directory07.png)
+
+### III. File Compression: gzip
+
+เครื่องมือในการบีบอัดหลายตัวที่ใช้งานบนระบบ Linux และ Unix ซอฟต์แวร์ส่วนใหญ่สำหรับระบบ Linux ใช้ GNU gzip และ
+gunzip โดยที่
+
+- `gzip` ใช้บีบอัดไฟล์
+- `gunzip` ใช้แตกไฟล์บีบอัด
+
+**สำหรับ gzip ใน MacOS จะมีอยู่ในเครื่องอยู่แล้ว** แต่ถ้าเครื่องไหนไม่มีก็ต้องลงผ่าน Package Management ชื่อ Homebrew
+ได้เลย
 
 ```shell
-unzip output.zip
+$ brew install gzip
 ```
+
+[//]: # (![GZIP-Directory02.png]&#40;../assets/img/89%20Archiver/3-GZIP/GZIP-Directory02.png&#41;)
+
+หากต้องการบีบอัดไฟล์ ให้ป้อนคำสั่ง gzip และชื่อไฟล์
+ซึ่งจะแทนที่ไฟล์ด้วยนามสกุล .gz
+
+```shell
+$ gzip B-RNG.py
+```
+
+![GZIP-Directory02.png](../assets/img/89%20Archiver/3-GZIP/GZIP-Directory02.jpg)
+
+ในการแตกไฟล์สามารถทำได้ 2 วิธีคือใช้คำสั่ง `gzip` ที่เพิ่ม `-d` เข้าไปหรือใช้คำสั่ง `gunzip`
+คำสั่งเหล่านี้แตกไฟล์บีบอัดที่มีนามสกุล .gz และแทนที่ด้วยเวอร์ชันที่คลายการบีบอัดด้วยชื่อรูทเดียวกัน
+แต่ไม่มีนามสกุล .gz
+
+```shell
+$ gunzip B-RNG.py.gz
+
+$ gzip -d B-RNG.py.gz
+```
+
+![GZIP-Directory02.png](../assets/img/89%20Archiver/3-GZIP/GZIP-Directory03.jpg)
+> [!TIP]
+>
+> On your desktop, you can extract the contents of an archive by locating it with the file manager and double-clicking
+> it. You can also right-click and choose Open with Archive Manager. This will start the File Roller application, which
+> will open the archive, listing its contents. You can then choose to extract the archive. File Roller will use the
+> appropriate tools to decompress the archive (bzip2, zip, or gzip) if compressed, and then extract the archive (tar).
+
+สามารถบีบอัดไฟล์ tar ได้ ผลลัพธ์ที่ได้คือไฟล์ที่มีนามสกุล .tar.gz
+ไฟล์นี้มักใช้สำหรับส่งไฟล์ขนาดใหญ่มากผ่านเครือข่ายอินเตอร์เน็ต
+
+```shell
+$ gzip myarch.tar 
+$ ls 
+
+myarch.tar.gz
+```
+
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -c                | Sends compressed version of file to standard output; each file listed is separately compressed.                                                                                                                                                                                                                                                                                |
+| -d                | Decompresses a compressed file; or you can use gunzip.                                                                                                                                                                                                                                                                                                                         |
+| -h                | Displays help listing.                                                                                                                                                                                                                                                                                                                                                         |
+| -l file-list      | Displays compressed and uncompressed size of each file listed.                                                                                                                                                                                                                                                                                                                 |
+| -r directory-name | Recursively searches for specified directories and compresses all the files in them; the search begins from the current working directory. When used with gunzip, compressed files of a specified directory are uncompressed.                                                                                                                                                  |
+| -v file-list      | For each compressed or decompressed file, displays its name and the percentage of its reduction in size.                                                                                                                                                                                                                                                                       |
+| -num              | Determines the speed and size of the compression; the range is from –1 to –9. A lower number gives greater speed but less compression, resulting in a larger file that compresses and decompresses quickly. Thus –1 gives the quickest compression but with the largest size; –9 results in a very small file that takes longer to compress and decompress. The default is –6. |
 
 ## Resources
 
