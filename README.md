@@ -50,15 +50,15 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 
 ## Contributors
 
-| ID       | Name                                  | Sub Topic                      | Img                                                                              |
-|----------|---------------------------------------|--------------------------------|----------------------------------------------------------------------------------|
-| 65070001 | นางสาวกชกร ครุธเวโช (แพรไหม)          | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="/assets/img/members/001.webp" width="150"/> |
-| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ (วิน) | Raw Media Devices              | <img alt="Win" height="150" src="/assets/img/members/018.webp" width="150"/>     |
-| 65070028 | นายคณิศร สมศรีอักษรแสง (เบส)          | Physical Volume Administration | <img alt="Best" height="150" src="/assets/img/members/028.webp" width="150"/>    |
-| 65070035 | นายจิรโชติ อินทรวงษ์โชติ (ไจ๋)        | Volume Group Administration    | <img alt="Jai" height="150" src="/assets/img/members/035.webp" width="150"/>     |
-| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง (นนท์)        | Logical Volume Administration  | <img alt="Nont" height="150" src="/assets/img/members/076.webp" width="150"/>    |
-| 65070078 | นายณัฐพงศ์ มาสำราญ (เจมส์)            | File System Type               | <img alt="James" height="150" src="/assets/img/members/078.webp" width="150"/>   |
-| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์ (เต้)        | Archiver, Backup/Restore Tools | <img alt="Tae" height="150" src="/assets/img/members/089.webp" width="150"/>     |
+| ID       | Name                                  | Sub Topic                      | Img                                                                             |
+|----------|---------------------------------------|--------------------------------|---------------------------------------------------------------------------------|
+| 65070001 | นางสาวกชกร ครุธเวโช (แพรไหม)          | Files, Directories and FHS     | <img alt="PraeMai" height="150" src="assets/img/members/001.webp" width="150"/> |
+| 65070018 | นายกิตติ์ชินทักษ์ หรรษานนท์โชติ (วิน) | Raw Media Devices              | <img alt="Win" height="150" src="assets/img/members/018.webp" width="150"/>     |
+| 65070028 | นายคณิศร สมศรีอักษรแสง (เบส)          | Physical Volume Administration | <img alt="Best" height="150" src="assets/img/members/028.webp" width="150"/>    |
+| 65070035 | นายจิรโชติ อินทรวงษ์โชติ (ไจ๋)        | Volume Group Administration    | <img alt="Jai" height="150" src="assets/img/members/035.webp" width="150"/>     |
+| 65070076 | นายณัฐนนท์ วงศ์หนองเเวง (นนท์)        | Logical Volume Administration  | <img alt="Nont" height="150" src="assets/img/members/076.webp" width="150"/>    |
+| 65070078 | นายณัฐพงศ์ มาสำราญ (เจมส์)            | File System Type               | <img alt="James" height="150" src="assets/img/members/078.webp" width="150"/>   |
+| 65070089 | นายธนกฤต ทรัพย์ประสิทธิ์ (เต้)        | Archiver, Backup/Restore Tools | <img alt="Tae" height="150" src="assets/img/members/089.webp" width="150"/>     |
 
 [//]: # (![GroupMembers]&#40;/assets/img/members/group-members.jpeg&#41;)
 
@@ -71,7 +71,7 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 
 <br>
 <div style="display: flex; justify-content: center">
-<img alt="Sumet" src="/assets/img/members/Sumet-200x200.png"/>
+<img alt="Sumet" src="assets/img/members/Sumet-200x200.png"/>
 </div>
 <br>
 
@@ -87,19 +87,19 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 
 ## Source
 
-### Book
+- ### Book
 
-- Paul Cobbau, Linux Storage - https://linux-training.be/linuxsto.pdf
-- Richard Petersen, The Complete Reference Linux 6th
-  Edition - https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf
+    - Paul Cobbau, Linux Storage - https://linux-training.be/linuxsto.pdf
+    - Richard Petersen, The Complete Reference Linux 6th
+      Edition - https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf
 
-### Webpage
+- ### Webpage
 
-- Linux File System - GeeksforGeeks. https://www.geeksforgeeks.org/linux-file-system/.
-- Linux File System: Understanding Directory Structure ... -
-  howtouselinux. https://www.howtouselinux.com/post/linux-file-system-understanding-directory-structure-and-navigating-the-file-system.
-- Guide to Linux Filesystems | Baeldung on Linux. https://www.baeldung.com/linux/filesystems.
-- Partitions And Filesystems In Linux –
-  Introduction. https://www.linuxfordevices.com/tutorials/linux/partitions-and-filesystems.
-- Linux File System - javatpoint. https://www.javatpoint.com/linux-file-system.
+    - Linux File System - GeeksforGeeks. https://www.geeksforgeeks.org/linux-file-system/.
+    - Linux File System: Understanding Directory Structure ... -
+      howtouselinux. https://www.howtouselinux.com/post/linux-file-system-understanding-directory-structure-and-navigating-the-file-system.
+    - Guide to Linux Filesystems | Baeldung on Linux. https://www.baeldung.com/linux/filesystems.
+    - Partitions And Filesystems In Linux –
+      Introduction. https://www.linuxfordevices.com/tutorials/linux/partitions-and-filesystems.
+    - Linux File System - javatpoint. https://www.javatpoint.com/linux-file-system.
 

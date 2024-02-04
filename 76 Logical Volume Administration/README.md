@@ -36,20 +36,23 @@ https://miro.medium.com/v2/format:webp/0*AfmQ4EWxlDsXJbFQ.png
 <br>
 https://www.cyberciti.biz/media/new/faq/2018/08/Shows-information-about-available-LVM-logical-volumes.png
 
-
 ## ส่วนประกอบของ LVM
 
 **ส่วนประกอบหลักๆ ของ LVM จะมีอยู่ 3 ส่วนคือ**
 
-**Physical Volume (PV)** ในส่วนนี้ก็คือส่วนของฮาร์ดดิสก์จริงๆ ที่เราจะใช้ในการเก็บข้อมูล เราสามารถใช้ฮาร์ดดิสก์เพื่อทำเป็น Physical Volume ได้สองแบบ แบบแรกใช้ทีเดียวทั้งก้อนเลยเช่นทั้งก้อน /dev/sda หรือจะเป็นแบบที่สองคือทำทีละ disk partitionเช่น /dev/sda1, /dev/sda2 ตามคำเอกสาร LVM HOWTO แล้วเขาแนะนำเป็นแบบที่สองคือแบ่งเป็น partition ก่อนแล้วค่อยทำเป็น **Physical Volume**
+**Physical Volume (PV)** ในส่วนนี้ก็คือส่วนของฮาร์ดดิสก์จริงๆ ที่เราจะใช้ในการเก็บข้อมูล
+เราสามารถใช้ฮาร์ดดิสก์เพื่อทำเป็น Physical Volume ได้สองแบบ แบบแรกใช้ทีเดียวทั้งก้อนเลยเช่นทั้งก้อน /dev/sda
+หรือจะเป็นแบบที่สองคือทำทีละ disk partitionเช่น /dev/sda1, /dev/sda2 ตามคำเอกสาร LVM HOWTO
+แล้วเขาแนะนำเป็นแบบที่สองคือแบ่งเป็น partition ก่อนแล้วค่อยทำเป็น **Physical Volume**
 
-**Volume Group (VG)** จะทำหน้าที่รวบรวม Physical Volume ต่างๆ เข้าด้วยกันเพื่อมองเป็นก้อนๆ เดียว เช่นรวม /dev/sda1, /dev/sdb1, /dev/sdc1 ซึ่งทำถูกทำเป็น Physical Volume แล้ว นำมาเข้าด้วยกันเป็น Volume Group ที่ชื่อ VG0
+**Volume Group (VG)** จะทำหน้าที่รวบรวม Physical Volume ต่างๆ เข้าด้วยกันเพื่อมองเป็นก้อนๆ เดียว เช่นรวม /dev/sda1,
+/dev/sdb1, /dev/sdc1 ซึ่งทำถูกทำเป็น Physical Volume แล้ว นำมาเข้าด้วยกันเป็น Volume Group ที่ชื่อ VG0
 
-**Logical Volume (LV)** เป็นก้อนย่อยๆ ที่แบ่งมาจาก Volume Group นั่นเอง เช่นเมื่อเราสร้าง Volume Group ที่ชื่อ VG0 ขึ้นมาแล้วเราก็นำมาแบ่งย่อยอีกทีนึงเช่นเป็น LV0_home สำหรับใช้เป็น /home ของระบบ LV0_var สำหรับใช้เป็น /var เป็นตัน
+**Logical Volume (LV)** เป็นก้อนย่อยๆ ที่แบ่งมาจาก Volume Group นั่นเอง เช่นเมื่อเราสร้าง Volume Group ที่ชื่อ VG0
+ขึ้นมาแล้วเราก็นำมาแบ่งย่อยอีกทีนึงเช่นเป็น LV0_home สำหรับใช้เป็น /home ของระบบ LV0_var สำหรับใช้เป็น /var เป็นตัน
 
-หลังจากแบ่งเป็น **Logical Volume** แล้ว เราก็สามารถนำมา Volume นั้นมา format เป็น filesystem ตามที่เราต้องการได้เช่น ext2, ext3 เพื่อนำมา mount เป็น /home, /var อีกที
-
-
+หลังจากแบ่งเป็น **Logical Volume** แล้ว เราก็สามารถนำมา Volume นั้นมา format เป็น filesystem ตามที่เราต้องการได้เช่น
+ext2, ext3 เพื่อนำมา mount เป็น /home, /var อีกที
 
 ## การสร้าง Logical Volume
 
@@ -143,7 +146,6 @@ root@server ~]# vgcreate VG_HOME /dev/sdb1 /dev/sdc1
 [root@fc8-a ~]# lvcreate -L 50G -n LV_HOME VG_HOME
   Logical volume "LV_HOME" created
 ```
-
 
 
 
