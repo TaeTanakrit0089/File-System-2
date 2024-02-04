@@ -67,10 +67,16 @@ File Systems แต่ละหัวข้อนะครับ เช่นร
 ผู้ช่วยศาสตราจารย์ ดร. สุเมธ ประภาวัต
 
 อาจารย์ประจำคณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+
+
 <br>
 <div style="display: flex; justify-content: center">
 <img alt="Sumet" src="/assets/img/members/Sumet-200x200.png"/>
 </div>
+<br>
+
+![Email Spin](assets/emailspin.gif)
+[sumet@it.kmitl.ac.th](mailto:sumet@it.kmitl.ac.th)
 
 ## Tools
 
