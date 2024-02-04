@@ -53,7 +53,99 @@ https://www.cyberciti.biz/media/new/faq/2018/08/Shows-information-about-availabl
 
 ## การสร้าง Logical Volume
 
-ขั้นตอนคร่าว
+
+
+### เตรียม Disk Partition เพื่อใช้ทำเป็น LVM
+
+เริ่มต้นเราต้องเลือก parition ที่จะใช้ทำเป็น LVM โดยใช้คำสั่ง fdisk ในการสร้าง ตัวอย่างเช่นสมมติว่าเรามีฮาร์ดดิสก์อยู่สองตัว ซึ่งเป็นตัวใหม่ที่ยังไม่เคยถูกใช้งานเลยต่ออยู่เป็น /dev/sdb และ /dev/sdc เราต้องสร้าง partition ขึ้นมาใหม่แล้วเปลี่ยนชนิดของ partition ให้เป็นแบบ “Linux LVM” ได้ตามตัวอย่างต่อไปนี้
+
+### สร้าง Physical Volume บน Disk Partition
+
+ขั้นตอนนี้เราจะทำการสร้าง Physical Volume ขึ้นมาบน Disk Partition ที่เราเพิ่งสร้างไปคือ /dev/sdb1 และ /dev/sdc1 โดยเราสามารถทำได้โดยใช้คำสั่ง pvcreate ในการสร้างและใช้คำสัง pvdisplay ในการตรวจสอบได้ ตามตัวอย่างต่อไปนี้
+
+คำสั่ง
+
+```
+[root@server]# pvcreate /dev/sdb1 /dev/sdc1
+  Physical volume "/dev/sdb1" successfully created
+  Physical volume "/dev/sdc1" successfully created
+```
+
+```
+[root@server ~]# pvdisplay
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb1
+  VG Name
+  PV Size               80.00 GB
+  Allocatable           NO
+  PE Size (KByte)       0
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               DE2WGx-ENyz-oxlv-jZ20-Le5l-pnvV-GzMeJ2
+```
+
+```
+--- NEW Physical volume ---
+  PV Name               /dev/sdc1
+  VG Name
+  PV Size               80.00 GB
+  Allocatable           NO
+  PE Size (KByte)       0
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               s0Wuj0-AYVd-jIZa-gmQp-n05o-MinM-xDQKVh
+```
+### รวม Physical Volume ทำเป็น Volume Group
+
+ขั้นตอนนี้เราจะนำ Physical Volume ที่เราสร้างมารวมกันเป็นก้อนๆ เดียวเป็น Volume Group โดยเราสามารถตั้งชื่อได้เพื่อสะดวกในการดูแลระบบต่อไป ในขั้นตอนนี้เราจะใช้คำสั่ง vgcreate ในการสร้างและ vgdisplay ในการตรวจสอบ ตามตัวอย่างต่อไปนี้
+
+คำสั่ง
+
+```
+root@server ~]# vgcreate VG_HOME /dev/sdb1 /dev/sdc1
+  Volume group "VG_HOME" successfully created
+```
+
+```
+[root@server ~]# vgdisplay
+  --- Volume group ---
+  VG Name               VG_HOME
+  System ID
+  Format                lvm2
+  Metadata Areas        2
+  Metadata Sequence No  1
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                0
+  Open LV               0
+  Max PV                0
+  Cur PV                2
+  Act PV                2
+  VG Size               159.99 GB
+  PE Size               4.00 MB
+  Total PE              40958
+  Alloc PE / Size       0 / 0
+  Free  PE / Size       40958 / 159.99 GB
+  VG UUID               ivjNHc-GdhD-58jD-0b9H-LK8J-pY59-9Lj140
+  ```
+
+ตัวอย่างด้านบนนี้จะเป็นการรวม Physical Volume /dev/sdb1 และ /dev/sdc1 รวมเป็น Volume Group เดียวที่ชื่อ VG_HOME
+
+### แบ่ง Volume Group ออกเป็น Logical Volume
+
+เมื่อเราได้ **Volume Group** (จากขั้นตอนที่ 2) แล้ว เราจะนำมาแบ่งออกเป็นส่วนต่างๆ คือ Logical Volume เพื่อนำไปใช้งานอีกที สมมติว่าเราต้องการสร้าง Logical Volume สำหรับทำเป็น /home ขนาด 50GB สามารถทำได้โดยคำสั่งต่อไปนี้
+
+```
+ตัวอย่างการสร้าง Logical Volume ขนาด 50GB
+[root@fc8-a ~]# lvcreate -L 50G -n LV_HOME VG_HOME
+  Logical volume "LV_HOME" created
+```
+
+
+
 
 
 ## References
