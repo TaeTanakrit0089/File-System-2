@@ -187,9 +187,9 @@ _ตัวอย่างคำสั่ง_
       cd
       /home/maisan
 
-[See another command file management here!](https://contabo.com/blog/linux-navigation-and-file-management/)
+         [See another command file management here!](https://contabo.com/blog/linux-navigation-and-file-management/)
 
-[See another file command options here!](https://phoenixnap.com/kb/linux-file-command)
+         [See another file command options here!](https://phoenixnap.com/kb/linux-file-command)
 
 <br>
 <hr>
