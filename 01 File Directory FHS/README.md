@@ -167,29 +167,25 @@ _ตัวอย่างคำสั่ง_
 
 - เข้าไปใน subdirectory ด้วยคำสั่ง : cd [directory name]
 
-   cd a1
-   pwd
-   /home/maisan/a1
+      cd a1
+      pwd
+      /home/maisan/a1
 
 - ต้องการออกจาก directory ปัจจุบัน ใช้คำสั่ง : cd ..
 
-  cd ..
-  pwd
-  /home/maisan
+      cd ..
+      pwd
+      /home/maisan
 
 - ออกไปยัง Home directory ใช้คำสั่ง : cd ~ หรือ cd
 
-  cd a1
-  cd a2
-  pwd
-  /home/maisan/a1/a2
+      cd a1
+      cd a2
+      pwd
+      /home/maisan/a1/a2
 
-  cd
-  /home/maisan
-  
-> [!TIP]
->
-> หากต้องการดูว่า Path ของ Directory ที่เราอยู่ สามารถใช้คำสั่ง : pwd
+      cd
+      /home/maisan
 
 [See another command file management here!](https://contabo.com/blog/linux-navigation-and-file-management/)
 [See another file command options here!](https://phoenixnap.com/kb/linux-file-command)
