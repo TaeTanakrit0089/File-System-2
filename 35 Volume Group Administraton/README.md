@@ -35,57 +35,100 @@ Example:
 
 <hr>
 
-## การจัดสรร LVM
+[//]: # (## การจัดสรร LVM)
 
-&emsp; &emsp; &emsp; เมื่อ **Logical Volume Manager(LVM)** จำเป็นที่จะต้องจัดสรร Physical extents สำหรับหนึ่ง logical
-volume หรือมากกว่า จะมีการจัดสรรดังต่อไปนี้ </br>
+[//]: # ()
+[//]: # (&emsp; &emsp; &emsp; เมื่อ **Logical Volume Manager&#40;LVM&#41;** จำเป็นที่จะต้องจัดสรร Physical extents สำหรับหนึ่ง logical)
 
-- ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรถูกสร้างขึ้นเพื่อการพิจารณา ถ้าหากระบุ ranges ของ Physical Volume ไว้ที่ท้าย
-  command line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges บนPhysical volumes
-  ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา</br>
+[//]: # (volume หรือมากกว่า จะมีการจัดสรรดังต่อไปนี้ </br>)
 
-- เเต่ละ policy ของการจัดสรร จะพยายามจัดลำดับ โดยเริ่มด้วย policy ที่เข้มงวดที่สุด (_contiguous_) และ จบด้วย policy
-  การจัดสรรที่ ใช้ option `--alloc` หรือ ตั้งเป็นค่า default สำหรับ logical volume หรือ volume group เฉพาะสำหรับเเต่ละ
-  policy, ทำงานจาก
-  logical extent ที่หมายเลขต่ำสุด ของพื้นที่ logical volume ที่ว่าง ที่ต้องการบรรจุ โดยจัดสรรพื้นที่ให้ได้มากที่สุด,
-  ตามข้อจำกัดของ policy การจัดสรร เเละ
-  ถ้าหากต้องการพื้นที่เพิ่ม LVM จะไปยัง policy ถัดไป.
-  </br>
+[//]: # ()
+[//]: # (- ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรถูกสร้างขึ้นเพื่อการพิจารณา ถ้าหากระบุ ranges ของ Physical Volume ไว้ที่ท้าย)
 
+[//]: # (  command line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges บนPhysical volumes)
 
-- **ข้อจำกัดของ policy การจัดสรร**
-    - Policy ของการจัดสรรเเบบ `contigous` กำหนดให้ตำเเหน่ง physical ของ logical extent ใดๆที่ไม่ใช่ logical extent
-      ตัวเเรกของ logical volume ที่อยุ่ติด
-      ตำเเหน่ง physical ของ logical extent ก่อนหน้านั้นทันที, เมื่อ logical volume ถูก striped หรือ mirrored
-      ข้อจำกัดการจัดสรร `contigous` จะถูกนำไปใช้กับเเต่ละ stripe หรือ mirror image ที่ต้องการพื้นที่.</br>
-    - Policy ของการจัดสรรเเบบ `cling` กำหนดไว้ว่า Physical volume ที่ถูกใช้โดย logical extent จะถูกเพิ่มเข้าไปยัง
-      logical volume ที่ถูกใช้เเล้ว
-      อย่างน้อยหนึ่ง logical extent ก่อนหน้านั้นใน logical volume นั้น. หากมีการกำหนด
-      parameter `allocation/cling_tag_list` Physical volume
-      สองตัวจะถือว่า match กัน ถ้าหากมี tag ใดๆ บนทั้งสอง Physical volume. ซึ่งช่วยให้ groups ของ Physical Volume
-      ที่มีคุณสมบัติคล้ายกัน (เช่น ตำเเหน่ง physical)
-      สามารถ tag เเละถือว่าเทียบเท่ากัน ในการจัดสรร</br>
-    - Policy ของการจัดสรรเเบบ `normal` จะไม่เลือก physiacl extent ที่ share physical volume เดียวกันกับ logical extent
-      ที่ได้รับการจัดสรรให้
-      parallel logical volume (คนละ stripe หรือ mirror image) เเล้วที่ offset เดียวกันภายใน parallel logical volume
-      นั้น</br>
-      มื่อจัดสรร mirror log ในเวลาเดียวกันกับ logical volume เพื่อเก็บข้อมูล mirror log ไว้, policy
-      การจัดสรรจะพยายามเลือก Physical volume ที่ต่างกันสำหรับบันทึก log
-      เเละ ข้อมูลก่อน, ถ้าทำไม่ได้เเละ `allocation/mirror_logs_require_separate_pvs` มีค่า 0 จะอนุญาติให้ log share
-      physical volume ส่วนหนึ่งร่วมกับข้อมูล.</br>
-      ขณะเดียวกัน ถ้าจัดสรร thin pool metadata policy การจัดสรรของ normal จะทำเช่นเดียวกันกับ การจัดสรรของ mirror log
-      ตามค่าของ
-      parameter config `allocation/thin_pool_metadata_require_separate_pvs`
-    - ถ้าหากมี extent ว่างที่เพียงพอต่อ request ของการจัดสรร เเต่ policy การจัดสรร `normal` จะไม่ใช้ เเต่
-      policy `anywhere` จะใช้ เเม้ว่าการวาง 2 stripes
-      ไว้ใน physical volume เดียวกันจะทำให้ประสิทธิภาพลดลงก็ตาม</br>
-    - โดยเราสามารถที่จะเปลี่ยนเเปลง policy ของการจัดสรรได้ผ่านคำสั่ง `vgchange`</br>
-      Example: </br>
-      `vgchange --available y|n` เเก้ไข active status volume group ทั้งหมด </br>
-      `vgchange --available y|n ชื่อvolume-group` เเก้ไข active status volume group ที่ระบุ </br>
+[//]: # (  ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา</br>)
 
+[//]: # ()
+[//]: # (- เเต่ละ policy ของการจัดสรร จะพยายามจัดลำดับ โดยเริ่มด้วย policy ที่เข้มงวดที่สุด &#40;_contiguous_&#41; และ จบด้วย policy)
 
-<hr>
+[//]: # (  การจัดสรรที่ ใช้ option `--alloc` หรือ ตั้งเป็นค่า default สำหรับ logical volume หรือ volume group เฉพาะสำหรับเเต่ละ)
+
+[//]: # (  policy, ทำงานจาก)
+
+[//]: # (  logical extent ที่หมายเลขต่ำสุด ของพื้นที่ logical volume ที่ว่าง ที่ต้องการบรรจุ โดยจัดสรรพื้นที่ให้ได้มากที่สุด,)
+
+[//]: # (  ตามข้อจำกัดของ policy การจัดสรร เเละ)
+
+[//]: # (  ถ้าหากต้องการพื้นที่เพิ่ม LVM จะไปยัง policy ถัดไป.)
+
+[//]: # (  </br>)
+
+[//]: # ()
+[//]: # ()
+[//]: # (- **ข้อจำกัดของ policy การจัดสรร**)
+
+[//]: # (    - Policy ของการจัดสรรเเบบ `contigous` กำหนดให้ตำเเหน่ง physical ของ logical extent ใดๆที่ไม่ใช่ logical extent)
+
+[//]: # (      ตัวเเรกของ logical volume ที่อยุ่ติด)
+
+[//]: # (      ตำเเหน่ง physical ของ logical extent ก่อนหน้านั้นทันที, เมื่อ logical volume ถูก striped หรือ mirrored)
+
+[//]: # (      ข้อจำกัดการจัดสรร `contigous` จะถูกนำไปใช้กับเเต่ละ stripe หรือ mirror image ที่ต้องการพื้นที่.</br>)
+
+[//]: # (    - Policy ของการจัดสรรเเบบ `cling` กำหนดไว้ว่า Physical volume ที่ถูกใช้โดย logical extent จะถูกเพิ่มเข้าไปยัง)
+
+[//]: # (      logical volume ที่ถูกใช้เเล้ว)
+
+[//]: # (      อย่างน้อยหนึ่ง logical extent ก่อนหน้านั้นใน logical volume นั้น. หากมีการกำหนด)
+
+[//]: # (      parameter `allocation/cling_tag_list` Physical volume)
+
+[//]: # (      สองตัวจะถือว่า match กัน ถ้าหากมี tag ใดๆ บนทั้งสอง Physical volume. ซึ่งช่วยให้ groups ของ Physical Volume)
+
+[//]: # (      ที่มีคุณสมบัติคล้ายกัน &#40;เช่น ตำเเหน่ง physical&#41;)
+
+[//]: # (      สามารถ tag เเละถือว่าเทียบเท่ากัน ในการจัดสรร</br>)
+
+[//]: # (    - Policy ของการจัดสรรเเบบ `normal` จะไม่เลือก physiacl extent ที่ share physical volume เดียวกันกับ logical extent)
+
+[//]: # (      ที่ได้รับการจัดสรรให้)
+
+[//]: # (      parallel logical volume &#40;คนละ stripe หรือ mirror image&#41; เเล้วที่ offset เดียวกันภายใน parallel logical volume)
+
+[//]: # (      นั้น</br>)
+
+[//]: # (      มื่อจัดสรร mirror log ในเวลาเดียวกันกับ logical volume เพื่อเก็บข้อมูล mirror log ไว้, policy)
+
+[//]: # (      การจัดสรรจะพยายามเลือก Physical volume ที่ต่างกันสำหรับบันทึก log)
+
+[//]: # (      เเละ ข้อมูลก่อน, ถ้าทำไม่ได้เเละ `allocation/mirror_logs_require_separate_pvs` มีค่า 0 จะอนุญาติให้ log share)
+
+[//]: # (      physical volume ส่วนหนึ่งร่วมกับข้อมูล.</br>)
+
+[//]: # (      ขณะเดียวกัน ถ้าจัดสรร thin pool metadata policy การจัดสรรของ normal จะทำเช่นเดียวกันกับ การจัดสรรของ mirror log)
+
+[//]: # (      ตามค่าของ)
+
+[//]: # (      parameter config `allocation/thin_pool_metadata_require_separate_pvs`)
+
+[//]: # (    - ถ้าหากมี extent ว่างที่เพียงพอต่อ request ของการจัดสรร เเต่ policy การจัดสรร `normal` จะไม่ใช้ เเต่)
+
+[//]: # (      policy `anywhere` จะใช้ เเม้ว่าการวาง 2 stripes)
+
+[//]: # (      ไว้ใน physical volume เดียวกันจะทำให้ประสิทธิภาพลดลงก็ตาม</br>)
+
+[//]: # (    - โดยเราสามารถที่จะเปลี่ยนเเปลง policy ของการจัดสรรได้ผ่านคำสั่ง `vgchange`</br>)
+
+[//]: # (      Example: </br>)
+
+[//]: # (      `vgchange --available y|n` เเก้ไข active status volume group ทั้งหมด </br>)
+
+[//]: # (      `vgchange --available y|n ชื่อvolume-group` เเก้ไข active status volume group ที่ระบุ </br>)
+
+[//]: # ()
+[//]: # ()
+[//]: # (<hr>)
 
 ## การสร้าง Volume Group ใน Cluster
 
