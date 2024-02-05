@@ -129,12 +129,12 @@ _ตัวอย่างคำสั่ง_
 | Socket    | ให้การแลกเปลี่ยนสื่อสารระหว่างกัน                 | socket() System call    | /dev               | s     |
 
 
-## ตัวอย่างเพิ่มเติมเกี่ยวกับ Regular file
+## ตัวอย่างเพิ่มเติมเกี่ยวกับ Regular files
 - เริ่มจากการสร้างไฟล์ด้วยคำสั่ง : touch [file name]
       
       touch testfile
 
-- สามารถเช็คว่าไฟล์ถูกสร้างขึ้นเรียบร้อยแล้วหรือไม่ได้ : ls [file name]
+- สามารถเช็คว่าไฟล์ถูกสร้างขึ้นเรียบร้อยแล้วหรือไม่ได้ : ls [option] [file name]
 
       ls testfile
       testfile
@@ -158,6 +158,35 @@ _ตัวอย่างคำสั่ง_
 > - หากใช้คำสั่ง echo แล้วเขียนชื่อไฟล์เป็นไฟล์ที่ยังไม่ถูกสร้าง จะเป็นการสร้างไฟล์ใหม่ที่มีเนื้อหาตามที่เขียนไว้
 > - ดังนั้นจึงควรระวังในการทำงานเกี่ยวกับไฟล์
 
+
+## ตัวอย่างเพิ่มเติมเกี่ยวกับ Directories
+- ดู Path ของ Directory ปัจจุบันที่เราอยู่ด้วยคำสั่ง : pwd
+
+      pwd
+      /home/maisan
+
+- เข้าไปใน subdirectory ด้วยคำสั่ง : cd [directory name]
+
+   cd a1
+   pwd
+   /home/maisan/a1
+
+- ต้องการออกจาก directory ปัจจุบัน ใช้คำสั่ง : cd ..
+
+  cd ..
+  pwd
+  /home/maisan
+
+- ออกไปยัง Home directory ใช้คำสั่ง : cd ~ หรือ cd
+
+  cd a1
+  cd a2
+  pwd
+  /home/maisan/a1/a2
+
+  cd
+  /home/maisan
+  
 > [!TIP]
 >
 > หากต้องการดูว่า Path ของ Directory ที่เราอยู่ สามารถใช้คำสั่ง : pwd
@@ -435,10 +464,12 @@ FHS (File System Hierachy Standard) เป็นโครงสร้าง file
 # Reference 
 
 - [cisco](https://content.netdevgroup.com/contents/linux-essentials/UbvrXt151d/)
-- [redhat FHS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/s1-filesystem-fhs)
 - [javapoint](https://www.javatpoint.com/linux-files#:~:text=In%20Linux%20system%2C%20everything%20is,Files%20are%20always%20case%20sensitive)
+- [redhat FHS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/s1-filesystem-fhs)
 - [linuxiosys](https://linuxopsys.com/topics/file-types-in-linux)
+- [rackspace](https://docs.rackspace.com/docs/create-files-in-linux)
+- [linuxsto.pdf](https://linux-training.be/linuxsto.pdf?fbclid=IwAR0iJbUx-0Gbl3RaEXDn4iZCTVuzBy1RC7ytevA9XXRx5sxFmDS7zOYrjM8)
 - [greeksforgeeks](https://www.geeksforgeeks.org/linux-directory-structure/)
-- [The Complete Reference LInux Sixth Edition](https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf?fbclid=IwAR07KOfQrR5c1Rd2Vrcew7x8vSd_QI-79OQNH7jnA_grvO_osKb-6V_1740)
 - [redhat Linux file permissions](https://www.redhat.com/sysadmin/linux-file-permissions-explained)
 - [Medium Linux file permissions](https://datafarm-cybersecurity.medium.com/file-permissions-in-linux-4e671dee72ca)
+- [The Complete Reference LInux Sixth Edition.pdf](https://doc.lagout.org/operating%20system%20/linux/Linux%20-%20The%20Complete%20Reference.pdf?fbclid=IwAR07KOfQrR5c1Rd2Vrcew7x8vSd_QI-79OQNH7jnA_grvO_osKb-6V_1740)
