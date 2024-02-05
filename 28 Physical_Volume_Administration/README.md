@@ -57,6 +57,21 @@ Partition)
 
 <hr />
 
+# The Physical Volume Label
+
+&emsp;โดยการตั้งค่าปกติ คำสั่ง `pvcreate` จะวาง Physical Volume Label ใน sector ที่สอง 512-byte โดยที่ Label สามารถแก้โดยไปยัง sector อื่น ๆ ได้ใน 4 sectors LVM tools สามารถสแกนหา Physical Volume Label ได้โดยจะเช็คที่ 4 sectors แรก เพราะฉะนั้น Physical Volume Lavel จะขึ้นด้วย string `LABELONE`
+
+&emsp;ข้อมูลภายใน Physical Volume Label
+- Physical Volume UUID
+- ขนาดของ Block Device รูปแบบ Bytes
+- NULL - บอกตำแหน่งพื้นที่ของ List of Data
+- NULL - บอกตำแหน่งพื้นที่ของ Lists of Metadata
+
+&emsp;Metadata locations เก็บแบบ offset และเป็นขนาด (รูปแบบ Bytes) จะมีพื้นที่ใน Label ประมาณ 15 Locations แต่ LVM Tools นั้นใช้แค่ 3 โดยมี
+1 พื้นที่ของ Data บวกกับ 2 พื้นที่ของ Metadata
+
+<hr />
+
 # Physical Volume Administration
 
 &emsp;มีหน้าที่ในการจัดการ **Physical Volumes** ใน Storage Environment หรือก็คือการจัดการ Disk ภายใน Server
