@@ -188,6 +188,7 @@ _ตัวอย่างคำสั่ง_
       /home/maisan
 
 [See another command file management here!](https://contabo.com/blog/linux-navigation-and-file-management/)
+
 [See another file command options here!](https://phoenixnap.com/kb/linux-file-command)
 
 <br>
