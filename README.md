@@ -4,7 +4,7 @@ Computer Organization and Operating System Assignment (Chapter: File System, Sec
 
 [//]: # ([Contributors]&#40;#Contributors&#41;)
 
-- [01 Directory FHS](01%20Directory%20FHS/README.md)
+- [01 File Directory FHS](01%20Directory%20FHS/README.md)
 - [18 Raw Media Device](18%20Raw%20Media%20Device/README.md)
 - [28 Physical_Volume_Administration](28%20Physical_Volume_Administration/README.md)
 - [35 Volume Group Administraton](35%20Volume%20Group%20Administraton/README.md)
