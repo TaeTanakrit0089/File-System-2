@@ -311,7 +311,7 @@ _คำสั่งที่ใช้แสดง Permission_
 
     cut -d: -f1 /etc/passwd | column
 
-### เปลี่ยน group owner และ user owner  
+### เปลี่ยน User Owner และ Group owner  
 
 สามารถทำได้โดยใช้ในผู้ใช้ระดับ root โดยใช้คำสั่ง
 
