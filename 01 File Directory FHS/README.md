@@ -160,24 +160,24 @@ _ตัวอย่างคำสั่ง_
 
 
 ## ตัวอย่างเพิ่มเติมเกี่ยวกับ Directories
-- ดู Path ของ Directory ปัจจุบันที่เราอยู่ด้วยคำสั่ง: pwd
+- ดู Path ของ Directory ปัจจุบันที่เราอยู่ด้วยคำสั่ง: `pwd`
 
       pwd
       /home/maisan
 
-- เข้าไปใน Subdirectory ด้วยคำสั่ง: cd [directory name]
+- เข้าไปใน Subdirectory ด้วยคำสั่ง: `cd [directory name]`
 
       cd a1
       pwd
       /home/maisan/a1
 
-- ต้องการออกจาก Directory ปัจจุบัน ใช้คำสั่ง: cd ..
+- ต้องการออกจาก Directory ปัจจุบัน ใช้คำสั่ง: `cd ..`
 
       cd ..
       pwd
       /home/maisan
 
-- ออกไปยัง Home directory ใช้คำสั่ง: cd ~ หรือ cd
+- ออกไปยัง Home directory ใช้คำสั่ง: `cd ~` หรือ `cd`
 
       cd a1
       cd a2
