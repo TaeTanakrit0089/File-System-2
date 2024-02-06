@@ -258,10 +258,13 @@ example:
 > [!NOTE]
 >  - ถ้า logical volume มี physical volume ที่ผิดพลาด ทำให้ใช้ logical volume ไม่ได้
      >
+
 - สามารถนำออกได้โดยการใช้ `--removemissing` ใน `vgreduce`
+
 > - ถ้ามี physical volume ที่ผิดพลาดที่มี mirror image อยู่ ของ logical volume ประเภท segment mirror สามารถเอา image
     ออกจาก mirror ได้ด้วย
     >
+
 - `vgreduce --removemissing --mirrorsonly --force` โดยจะลบเพียง logical volume ที่เป็น mirror image ออกจาก physical
   volume
 

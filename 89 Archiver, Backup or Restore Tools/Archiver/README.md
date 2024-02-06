@@ -2,7 +2,7 @@
 
 1. [Tar](#i-archive-files-and-devices-tar)
 2. [Zip](#ii-file-compression-zip)
-2. [G-Zip](#iii-file-compression-gzip)
+3. [G-Zip](#iii-file-compression-gzip)
 
 Archives
 ถูกใช้ในการสำรองไฟล์หรือรวมไฟล์ให้เป็นแพ็คเกจซึ่งช่วยให้สามารถถ่ายโอนเป็นไฟล์เดียวทางอินเทอร์เน็ตหรือโพสต์บนไซต์ FTP

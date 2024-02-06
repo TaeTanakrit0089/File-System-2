@@ -493,7 +493,7 @@ sudo apt install lvm2
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../assets/img/redhaticon/redhat_w.png">
   <source media="(prefers-color-scheme: light)" srcset="../assets/img/redhaticon/redhat_b.png">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="../assets/redhaticon/redhat_w.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="../assets/img/redhaticon/redhat_w.png">
 </picture>
 </a>
 
