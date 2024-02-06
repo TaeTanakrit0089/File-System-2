@@ -222,7 +222,7 @@ example:
 LVM ทำงานคำสั่ง `vgscan` อัตโนมัติเมื่อเริ่มต้นระบบ เเละ ในบางครั้งขณะ LVM operation เช่นเมื่อ execute คำสั่ง `vgcreate`
 หรือ เวลาที่ LVM ตรวจพบความไม่สอดคล้อง
 
-> ![NOTE]
+> [!NOTE]
 > - อาจจำเป็นที่จะต้อง run คำสั่ง `vgscan` เองเมื่อเปลี่ยน config ของ hardware เเละ เพิ่มหรือ ลบ device จาก node
     ระบบมองเห็น device ใหม่ที่ไม่เห็นเมื่อ บูตระบบ
 > - เช่นเมื่อต้องการเพิ่ม disk ใหม่เข้าไปในระบบ บน SAN หรือ เสียบอุปกรณ์ disk เข้าไปใหม่ ที่กำกับไว้ว่าเป็น physical
@@ -257,16 +257,11 @@ example:
 
 > [!NOTE]
 >  - ถ้า logical volume มี physical volume ที่ผิดพลาด ทำให้ใช้ logical volume ไม่ได้
-     >
-
-- สามารถนำออกได้โดยการใช้ `--removemissing` ใน `vgreduce`
-
+>    - สามารถนำออกได้โดยการใช้ `--removemissing` ใน `vgreduce`
 > - ถ้ามี physical volume ที่ผิดพลาดที่มี mirror image อยู่ ของ logical volume ประเภท segment mirror สามารถเอา image
     ออกจาก mirror ได้ด้วย
-    >
-
-- `vgreduce --removemissing --mirrorsonly --force` โดยจะลบเพียง logical volume ที่เป็น mirror image ออกจาก physical
-  volume
+>   - `vgreduce --removemissing --mirrorsonly --force` โดยจะลบเพียง logical volume ที่เป็น mirror image ออกจาก physical
+     volume
 
 <hr>
 
