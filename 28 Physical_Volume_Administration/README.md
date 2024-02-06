@@ -59,15 +59,19 @@ Partition)
 
 # The Physical Volume Label
 
-&emsp;โดยการตั้งค่าปกติ คำสั่ง `pvcreate` จะวาง Physical Volume Label ใน sector ที่สอง 512-byte โดยที่ Label สามารถแก้โดยไปยัง sector อื่น ๆ ได้ใน 4 sectors LVM tools สามารถสแกนหา Physical Volume Label ได้โดยจะเช็คที่ 4 sectors แรก เพราะฉะนั้น Physical Volume Lavel จะขึ้นด้วย string `LABELONE`
+&emsp;โดยการตั้งค่าปกติ คำสั่ง `pvcreate` จะวาง Physical Volume Label ใน sector ที่สอง 512-byte โดยที่ Label
+สามารถแก้โดยไปยัง sector อื่น ๆ ได้ใน 4 sectors LVM tools สามารถสแกนหา Physical Volume Label ได้โดยจะเช็คที่ 4 sectors
+แรก เพราะฉะนั้น Physical Volume Lavel จะขึ้นด้วย string `LABELONE`
 
 &emsp;ข้อมูลภายใน Physical Volume Label
+
 - Physical Volume UUID
 - ขนาดของ Block Device รูปแบบ Bytes
 - NULL - บอกตำแหน่งพื้นที่ของ List of Data
 - NULL - บอกตำแหน่งพื้นที่ของ Lists of Metadata
 
-&emsp;Metadata locations เก็บแบบ offset และเป็นขนาด (รูปแบบ Bytes) จะมีพื้นที่ใน Label ประมาณ 15 Locations แต่ LVM Tools นั้นใช้แค่ 3 โดยมี
+&emsp;Metadata locations เก็บแบบ offset และเป็นขนาด (รูปแบบ Bytes) จะมีพื้นที่ใน Label ประมาณ 15 Locations แต่ LVM Tools
+นั้นใช้แค่ 3 โดยมี
 1 พื้นที่ของ Data บวกกับ 2 พื้นที่ของ Metadata
 
 <hr />
@@ -81,10 +85,13 @@ Partition)
 
 - ถ้าต้องการใช้ Disk ทั้งหมดในการใช้เป็น Physical Volume ตัว Disk จำเป็นต้องไม่มี Partition Table ในการใช้ DOS Disk
   Partitions ตัว Partition ID ต้องเซ็ตเป็น `0x8e` โดยใช้คำสั่ง `fdisk` หรือ `cfdisk` หรืออะไรก็ได้ที่ใช้ได้เหมือนกัน
+
 ```
 fdisk -l
 ```
+
 ด้วยคำสั่งนี้จะได้ List Disk ออกมา ใช้เพื่อดูขนาดของแต่ละ Disk และดูว่ามี Disk อะไรบ้างได้
+
 ```
 fdisk `Select Devices in /dev`
 ```

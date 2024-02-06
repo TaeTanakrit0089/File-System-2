@@ -38,11 +38,13 @@ Example:
 [//]: # (## การจัดสรร LVM)
 
 [//]: # ()
+
 [//]: # (&emsp; &emsp; &emsp; เมื่อ **Logical Volume Manager&#40;LVM&#41;** จำเป็นที่จะต้องจัดสรร Physical extents สำหรับหนึ่ง logical)
 
 [//]: # (volume หรือมากกว่า จะมีการจัดสรรดังต่อไปนี้ </br>)
 
 [//]: # ()
+
 [//]: # (- ชุดของ Physical extent ที่ไม่ได้ถูกจัดสรรถูกสร้างขึ้นเพื่อการพิจารณา ถ้าหากระบุ ranges ของ Physical Volume ไว้ที่ท้าย)
 
 [//]: # (  command line จะทำให้มีเพียงเเต่ Physical extents ที่ไม่ได้จัดสรร ที่อยู่ใน ranges บนPhysical volumes)
@@ -50,6 +52,7 @@ Example:
 [//]: # (  ที่ระบุเท่านั้นที่จะถูกนำมาพิจารณา</br>)
 
 [//]: # ()
+
 [//]: # (- เเต่ละ policy ของการจัดสรร จะพยายามจัดลำดับ โดยเริ่มด้วย policy ที่เข้มงวดที่สุด &#40;_contiguous_&#41; และ จบด้วย policy)
 
 [//]: # (  การจัดสรรที่ ใช้ option `--alloc` หรือ ตั้งเป็นค่า default สำหรับ logical volume หรือ volume group เฉพาะสำหรับเเต่ละ)
@@ -65,7 +68,9 @@ Example:
 [//]: # (  </br>)
 
 [//]: # ()
+
 [//]: # ()
+
 [//]: # (- **ข้อจำกัดของ policy การจัดสรร**)
 
 [//]: # (    - Policy ของการจัดสรรเเบบ `contigous` กำหนดให้ตำเเหน่ง physical ของ logical extent ใดๆที่ไม่ใช่ logical extent)
@@ -127,7 +132,9 @@ Example:
 [//]: # (      `vgchange --available y|n ชื่อvolume-group` เเก้ไข active status volume group ที่ระบุ </br>)
 
 [//]: # ()
+
 [//]: # ()
+
 [//]: # (<hr>)
 
 ## การสร้าง Volume Group ใน Cluster
@@ -250,11 +257,13 @@ example:
 
 > [!NOTE]
 >  - ถ้า logical volume มี physical volume ที่ผิดพลาด ทำให้ใช้ logical volume ไม่ได้
->    - สามารถนำออกได้โดยการใช้ `--removemissing` ใน `vgreduce`
+     >
+- สามารถนำออกได้โดยการใช้ `--removemissing` ใน `vgreduce`
 > - ถ้ามี physical volume ที่ผิดพลาดที่มี mirror image อยู่ ของ logical volume ประเภท segment mirror สามารถเอา image
-   ออกจาก mirror ได้ด้วย
->   - `vgreduce --removemissing --mirrorsonly --force` โดยจะลบเพียง logical volume ที่เป็น mirror image ออกจาก physical
-    volume
+    ออกจาก mirror ได้ด้วย
+    >
+- `vgreduce --removemissing --mirrorsonly --force` โดยจะลบเพียง logical volume ที่เป็น mirror image ออกจาก physical
+  volume
 
 <hr>
 
